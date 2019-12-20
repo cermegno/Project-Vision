@@ -1,0 +1,2132 @@
+{
+	"info": {
+		"_postman_id": "97faa2c4-c02f-4808-b087-adfb85f865f7",
+		"name": "ScaleIO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1ef747ee-377e-4002-b7a1-5c4eb23e406a",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.environment.set(\"token\", data);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/login",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/login",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Nov 2019 21:14:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "\"YWRtaW46MTU3NDE0MDQ5MTEzNzo5OGI1NDY4ODEzNTVkOGRmYWU3Njk2MGFlZWMzNzdkYg\""
+				}
+			]
+		},
+		{
+			"name": "GET instances",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/types/System/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"System",
+						"instances"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET instances",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/types/System/instances",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"System",
+								"instances"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Dec 2019 22:33:55 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"systemVersionName\": \"DellEMC ScaleIO Version: R3_0.100.134\",\n        \"perfProfile\": \"HighPerformance\",\n        \"authenticationMethod\": \"Native\",\n        \"capacityAlertHighThresholdPercent\": 80,\n        \"capacityAlertCriticalThresholdPercent\": 90,\n        \"remoteReadOnlyLimitState\": false,\n        \"upgradeState\": \"NoUpgrade\",\n        \"mdmManagementPort\": 6611,\n        \"sdcMdmNetworkDisconnectionsCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 300,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 500,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 700,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"sdcSdsNetworkDisconnectionsCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 800,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 4000,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 20000,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"sdcMemoryAllocationFailuresCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 300,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 500,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 700,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"sdcSocketAllocationFailuresCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 300,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 500,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 700,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"sdcLongOperationsCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 10000,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 100000,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 1000000,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"cliPasswordAllowed\": true,\n        \"managementClientSecureCommunicationEnabled\": true,\n        \"tlsVersion\": \"TLSv1.2\",\n        \"showGuid\": true,\n        \"defragmentationEnabled\": true,\n        \"mdmToSdsPolicy\": \"Authentication\",\n        \"mdmCluster\": {\n            \"clusterState\": \"ClusteredNormal\",\n            \"clusterMode\": \"ThreeNodes\",\n            \"tieBreakers\": [\n                {\n                    \"managementIPs\": [\n                        \"192.168.172.145\"\n                    ],\n                    \"ips\": [\n                        \"192.168.172.145\"\n                    ],\n                    \"versionInfo\": \"R3_0.100.0\",\n                    \"opensslVersion\": \"N/A\",\n                    \"role\": \"TieBreaker\",\n                    \"status\": \"Normal\",\n                    \"name\": \"Tie-Breaker1\",\n                    \"id\": \"007ea2de3e40bc02\",\n                    \"port\": 9011\n                }\n            ],\n            \"goodNodesNum\": 3,\n            \"goodReplicasNum\": 2,\n            \"master\": {\n                \"managementIPs\": [\n                    \"192.168.172.144\"\n                ],\n                \"ips\": [\n                    \"192.168.172.144\"\n                ],\n                \"versionInfo\": \"R3_0.100.0\",\n                \"opensslVersion\": \"OpenSSL 1.0.2k-fips  26 Jan 2017\",\n                \"virtualInterfaces\": [],\n                \"role\": \"Manager\",\n                \"name\": \"Manager2\",\n                \"id\": \"700c19305c63d801\",\n                \"port\": 9011\n            },\n            \"slaves\": [\n                {\n                    \"managementIPs\": [\n                        \"192.168.172.143\"\n                    ],\n                    \"ips\": [\n                        \"192.168.172.143\"\n                    ],\n                    \"versionInfo\": \"R3_0.100.0\",\n                    \"opensslVersion\": \"OpenSSL 1.0.2k-fips  26 Jan 2017\",\n                    \"virtualInterfaces\": [],\n                    \"role\": \"Manager\",\n                    \"status\": \"Normal\",\n                    \"name\": \"Manager1\",\n                    \"id\": \"60ef16b363fab800\",\n                    \"port\": 9011\n                }\n            ],\n            \"id\": \"4683988825916398607\"\n        },\n        \"sdcSdsConnectivityInfo\": {\n            \"sdcSdsConnectivityStatus\": \"AllConnected\",\n            \"disconnectedSdcId\": null,\n            \"disconnectedSdcName\": null,\n            \"disconnectedSdsId\": null,\n            \"disconnectedSdsName\": null,\n            \"disconnectedSdsIp\": null\n        },\n        \"addressSpaceUsage\": \"Normal\",\n        \"lastUpgradeTime\": 0,\n        \"swid\": \"\",\n        \"installId\": \"16cf0cd65b7c043f\",\n        \"daysInstalled\": 25,\n        \"maxCapacityInGb\": \"Unlimited\",\n        \"capacityTimeLeftInDays\": \"Unlimited\",\n        \"isInitialLicense\": true,\n        \"restrictedSdcModeEnabled\": false,\n        \"restrictedSdcMode\": \"None\",\n        \"enterpriseFeaturesEnabled\": true,\n        \"id\": \"4100df0534a55c0f\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f\"\n            },\n            {\n                \"rel\": \"/api/System/relationship/Statistics\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/System/relationship/ProtectionDomain\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f/relationships/ProtectionDomain\"\n            },\n            {\n                \"rel\": \"/api/System/relationship/Sdc\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f/relationships/Sdc\"\n            },\n            {\n                \"rel\": \"/api/System/relationship/User\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f/relationships/User\"\n            },\n            {\n                \"rel\": \"/api/System/relationship/SnapshotPolicy\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f/relationships/SnapshotPolicy\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GET StoragePools",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/types/StoragePool/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"StoragePool",
+						"instances"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET StoragePools",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/types/StoragePool/instances",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"StoragePool",
+								"instances"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Dec 2019 22:48:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"protectionDomainId\": \"fc9faded00000000\",\n        \"rebuildEnabled\": true,\n        \"dataLayout\": \"MediumGranularity\",\n        \"addressSpaceUsage\": \"Normal\",\n        \"externalAccelerationType\": \"None\",\n        \"sparePercentage\": 10,\n        \"rmcacheWriteHandlingMode\": \"Cached\",\n        \"checksumEnabled\": false,\n        \"useRfcache\": false,\n        \"rebalanceEnabled\": true,\n        \"fragmentationEnabled\": true,\n        \"numOfParallelRebuildRebalanceJobsPerDevice\": 2,\n        \"capacityAlertHighThreshold\": 80,\n        \"capacityAlertCriticalThreshold\": 90,\n        \"capacityUsageState\": \"Normal\",\n        \"capacityUsageType\": \"NetCapacity\",\n        \"addressSpaceUsageType\": \"DeviceCapacityLimit\",\n        \"dataIntegrityScannerErrorAction\": \"ReportAndFix\",\n        \"fglExtraCapacity\": null,\n        \"fglOverProvisioningFactor\": null,\n        \"fglWriteAtomicitySize\": null,\n        \"fglMaxCompressionRatio\": null,\n        \"fglPerfProfile\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"mediaType\": \"HDD\",\n        \"rebuildIoPriorityPolicy\": \"limitNumOfConcurrentIos\",\n        \"rebalanceIoPriorityPolicy\": \"favorAppIos\",\n        \"vtreeMigrationIoPriorityPolicy\": \"favorAppIos\",\n        \"rebuildIoPriorityNumOfConcurrentIosPerDevice\": 1,\n        \"rebalanceIoPriorityNumOfConcurrentIosPerDevice\": 1,\n        \"vtreeMigrationIoPriorityNumOfConcurrentIosPerDevice\": 1,\n        \"rebuildIoPriorityBwLimitPerDeviceInKbps\": 10240,\n        \"rebalanceIoPriorityBwLimitPerDeviceInKbps\": 10240,\n        \"vtreeMigrationIoPriorityBwLimitPerDeviceInKbps\": 10240,\n        \"rebuildIoPriorityAppIopsPerDeviceThreshold\": null,\n        \"rebalanceIoPriorityAppIopsPerDeviceThreshold\": null,\n        \"vtreeMigrationIoPriorityAppIopsPerDeviceThreshold\": null,\n        \"rebuildIoPriorityAppBwPerDeviceThresholdInKbps\": null,\n        \"rebalanceIoPriorityAppBwPerDeviceThresholdInKbps\": null,\n        \"vtreeMigrationIoPriorityAppBwPerDeviceThresholdInKbps\": null,\n        \"rebuildIoPriorityQuietPeriodInMsec\": null,\n        \"rebalanceIoPriorityQuietPeriodInMsec\": null,\n        \"vtreeMigrationIoPriorityQuietPeriodInMsec\": null,\n        \"zeroPaddingEnabled\": false,\n        \"useRmcache\": false,\n        \"backgroundScannerMode\": \"DeviceOnly\",\n        \"backgroundScannerBWLimitKBps\": 3072,\n        \"fglAccpId\": null,\n        \"fglMetadataSizeXx100\": null,\n        \"fglNvdimmWriteCacheSizeInMb\": null,\n        \"fglNvdimmMetadataAmortizationX100\": null,\n        \"name\": \"SP1\",\n        \"id\": \"b8ab08b700000000\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/StoragePool::b8ab08b700000000\"\n            },\n            {\n                \"rel\": \"/api/StoragePool/relationship/Statistics\",\n                \"href\": \"/api/instances/StoragePool::b8ab08b700000000/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/StoragePool/relationship/SpSds\",\n                \"href\": \"/api/instances/StoragePool::b8ab08b700000000/relationships/SpSds\"\n            },\n            {\n                \"rel\": \"/api/StoragePool/relationship/Volume\",\n                \"href\": \"/api/instances/StoragePool::b8ab08b700000000/relationships/Volume\"\n            },\n            {\n                \"rel\": \"/api/StoragePool/relationship/Device\",\n                \"href\": \"/api/instances/StoragePool::b8ab08b700000000/relationships/Device\"\n            },\n            {\n                \"rel\": \"/api/StoragePool/relationship/VTree\",\n                \"href\": \"/api/instances/StoragePool::b8ab08b700000000/relationships/VTree\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/protectionDomainId\",\n                \"href\": \"/api/instances/ProtectionDomain::fc9faded00000000\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GET ProtectionDomains",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/types/ProtectionDomain/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"ProtectionDomain",
+						"instances"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET ProtectionDomains",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/types/ProtectionDomain/instances",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"ProtectionDomain",
+								"instances"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Dec 2019 22:47:10 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"protectionDomainState\": \"Active\",\n        \"rebuildNetworkThrottlingInKbps\": null,\n        \"rebalanceNetworkThrottlingInKbps\": null,\n        \"overallIoNetworkThrottlingInKbps\": null,\n        \"vtreeMigrationNetworkThrottlingInKbps\": null,\n        \"sdsDecoupledCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 300,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 500,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 700,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"sdsConfigurationFailureCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 300,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 500,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 700,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"mdmSdsNetworkDisconnectionsCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 300,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 500,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 700,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"sdsSdsNetworkDisconnectionsCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 300,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 500,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 700,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"rfcacheOpertionalMode\": \"WriteMiss\",\n        \"rfcachePageSizeKb\": 64,\n        \"rfcacheMaxIoSizeKb\": 128,\n        \"sdsReceiveBufferAllocationFailuresCounterParameters\": {\n            \"shortWindow\": {\n                \"threshold\": 20000,\n                \"windowSizeInSec\": 60\n            },\n            \"mediumWindow\": {\n                \"threshold\": 200000,\n                \"windowSizeInSec\": 3600\n            },\n            \"longWindow\": {\n                \"threshold\": 2000000,\n                \"windowSizeInSec\": 86400\n            }\n        },\n        \"fglDefaultNumConcurrentWrites\": 1000,\n        \"rebuildNetworkThrottlingEnabled\": false,\n        \"rebalanceNetworkThrottlingEnabled\": false,\n        \"vtreeMigrationNetworkThrottlingEnabled\": false,\n        \"overallIoNetworkThrottlingEnabled\": false,\n        \"rfcacheEnabled\": true,\n        \"rfcacheAccpId\": null,\n        \"systemId\": \"4100df0534a55c0f\",\n        \"name\": \"default\",\n        \"id\": \"fc9faded00000000\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/ProtectionDomain::fc9faded00000000\"\n            },\n            {\n                \"rel\": \"/api/ProtectionDomain/relationship/Statistics\",\n                \"href\": \"/api/instances/ProtectionDomain::fc9faded00000000/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/ProtectionDomain/relationship/AccelerationPool\",\n                \"href\": \"/api/instances/ProtectionDomain::fc9faded00000000/relationships/AccelerationPool\"\n            },\n            {\n                \"rel\": \"/api/ProtectionDomain/relationship/StoragePool\",\n                \"href\": \"/api/instances/ProtectionDomain::fc9faded00000000/relationships/StoragePool\"\n            },\n            {\n                \"rel\": \"/api/ProtectionDomain/relationship/Sds\",\n                \"href\": \"/api/instances/ProtectionDomain::fc9faded00000000/relationships/Sds\"\n            },\n            {\n                \"rel\": \"/api/ProtectionDomain/relationship/FaultSet\",\n                \"href\": \"/api/instances/ProtectionDomain::fc9faded00000000/relationships/FaultSet\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/systemId\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GET SDC instances",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/types/Sdc/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"Sdc",
+						"instances"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET SDC instances",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/types/Sdc/instances",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"Sdc",
+								"instances"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Dec 2019 22:52:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"osType\": \"Linux\",\n        \"perfProfile\": \"Compact\",\n        \"sdcApproved\": true,\n        \"softwareVersionInfo\": \"R3_0.100.0\",\n        \"mdmConnectionState\": \"Connected\",\n        \"memoryAllocationFailure\": null,\n        \"socketAllocationFailure\": null,\n        \"sdcGuid\": \"8DB7DFE5-B074-4123-BADB-45BDD0AD00AD\",\n        \"installedSoftwareVersionInfo\": \"R3_0.100.0\",\n        \"kernelVersion\": \"3.10.0\",\n        \"kernelBuildNumber\": null,\n        \"sdcIp\": \"192.168.172.144\",\n        \"sdcApprovedIps\": null,\n        \"sdcIps\": [\n            \"192.168.172.144\"\n        ],\n        \"versionInfo\": \"R3_0.100.0\",\n        \"systemId\": \"4100df0534a55c0f\",\n        \"name\": null,\n        \"id\": \"2995562700000001\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Sdc::2995562700000001\"\n            },\n            {\n                \"rel\": \"/api/Sdc/relationship/Statistics\",\n                \"href\": \"/api/instances/Sdc::2995562700000001/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/Sdc/relationship/Volume\",\n                \"href\": \"/api/instances/Sdc::2995562700000001/relationships/Volume\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/systemId\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f\"\n            }\n        ]\n    },\n    {\n        \"osType\": \"Linux\",\n        \"perfProfile\": \"Compact\",\n        \"sdcApproved\": true,\n        \"softwareVersionInfo\": \"R3_0.100.0\",\n        \"mdmConnectionState\": \"Connected\",\n        \"memoryAllocationFailure\": null,\n        \"socketAllocationFailure\": null,\n        \"sdcGuid\": \"735316B6-37F9-49E8-8C7C-DDEA33501F50\",\n        \"installedSoftwareVersionInfo\": \"R3_0.100.0\",\n        \"kernelVersion\": \"3.10.0\",\n        \"kernelBuildNumber\": null,\n        \"sdcIp\": \"192.168.172.145\",\n        \"sdcApprovedIps\": null,\n        \"sdcIps\": [\n            \"192.168.172.145\"\n        ],\n        \"versionInfo\": \"R3_0.100.0\",\n        \"systemId\": \"4100df0534a55c0f\",\n        \"name\": null,\n        \"id\": \"2995562600000000\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Sdc::2995562600000000\"\n            },\n            {\n                \"rel\": \"/api/Sdc/relationship/Statistics\",\n                \"href\": \"/api/instances/Sdc::2995562600000000/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/Sdc/relationship/Volume\",\n                \"href\": \"/api/instances/Sdc::2995562600000000/relationships/Volume\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/systemId\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f\"\n            }\n        ]\n    },\n    {\n        \"osType\": \"Linux\",\n        \"perfProfile\": \"HighPerformance\",\n        \"sdcApproved\": true,\n        \"softwareVersionInfo\": \"R3_0.100.0\",\n        \"mdmConnectionState\": \"Connected\",\n        \"memoryAllocationFailure\": null,\n        \"socketAllocationFailure\": null,\n        \"sdcGuid\": \"D047BD9F-6F3E-43BE-A27A-F66C45C4D836\",\n        \"installedSoftwareVersionInfo\": \"R3_0.100.0\",\n        \"kernelVersion\": \"3.10.0\",\n        \"kernelBuildNumber\": null,\n        \"sdcIp\": \"192.168.172.193\",\n        \"sdcApprovedIps\": null,\n        \"sdcIps\": [\n            \"192.168.172.193\"\n        ],\n        \"versionInfo\": \"R3_0.100.0\",\n        \"systemId\": \"4100df0534a55c0f\",\n        \"name\": null,\n        \"id\": \"2996dcc600000003\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Sdc::2996dcc600000003\"\n            },\n            {\n                \"rel\": \"/api/Sdc/relationship/Statistics\",\n                \"href\": \"/api/instances/Sdc::2996dcc600000003/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/Sdc/relationship/Volume\",\n                \"href\": \"/api/instances/Sdc::2996dcc600000003/relationships/Volume\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/systemId\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f\"\n            }\n        ]\n    },\n    {\n        \"osType\": \"Linux\",\n        \"perfProfile\": \"Compact\",\n        \"sdcApproved\": true,\n        \"softwareVersionInfo\": \"R3_0.100.0\",\n        \"mdmConnectionState\": \"Connected\",\n        \"memoryAllocationFailure\": null,\n        \"socketAllocationFailure\": null,\n        \"sdcGuid\": \"A7EC5E3F-F2FF-43EB-9D56-53200A62CCA8\",\n        \"installedSoftwareVersionInfo\": \"R3_0.100.0\",\n        \"kernelVersion\": \"3.10.0\",\n        \"kernelBuildNumber\": null,\n        \"sdcIp\": \"192.168.172.143\",\n        \"sdcApprovedIps\": null,\n        \"sdcIps\": [\n            \"192.168.172.143\"\n        ],\n        \"versionInfo\": \"R3_0.100.0\",\n        \"systemId\": \"4100df0534a55c0f\",\n        \"name\": null,\n        \"id\": \"2995562800000002\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Sdc::2995562800000002\"\n            },\n            {\n                \"rel\": \"/api/Sdc/relationship/Statistics\",\n                \"href\": \"/api/instances/Sdc::2995562800000002/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/Sdc/relationship/Volume\",\n                \"href\": \"/api/instances/Sdc::2995562800000002/relationships/Volume\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/systemId\",\n                \"href\": \"/api/instances/System::4100df0534a55c0f\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GET volumes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/types/Volume/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"Volume",
+						"instances"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET volumes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/types/Volume/instances",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"Volume",
+								"instances"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Nov 2019 21:28:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"mappedSdcInfo\": [\n            {\n                \"sdcId\": \"af2bf1c500000002\",\n                \"sdcIp\": \"192.168.219.12\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c400000001\",\n                \"sdcIp\": \"192.168.219.11\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c300000000\",\n                \"sdcIp\": \"192.168.218.13\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            }\n        ],\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739d00000001\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bccd00000001\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThinProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 528482304,\n        \"creationTime\": 1571285853,\n        \"name\": \"IsoVolOnVxFlex\",\n        \"id\": \"02a82f1900000001\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f1900000001\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f1900000001/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bccd00000001\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739d00000001\"\n            }\n        ]\n    },\n    {\n        \"mappedSdcInfo\": [\n            {\n                \"sdcId\": \"af2bf1c500000002\",\n                \"sdcIp\": \"192.168.219.12\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c400000001\",\n                \"sdcIp\": \"192.168.219.11\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c300000000\",\n                \"sdcIp\": \"192.168.218.13\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            }\n        ],\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739d00000001\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bcce00000002\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThinProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 10737418240,\n        \"creationTime\": 1571818441,\n        \"name\": \"VxFlexHddVolume01\",\n        \"id\": \"02a82f1a00000002\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f1a00000002\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f1a00000002/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bcce00000002\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739d00000001\"\n            }\n        ]\n    },\n    {\n        \"mappedSdcInfo\": null,\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739d00000001\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bccf00000003\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThickProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 8388608,\n        \"creationTime\": 1574072163,\n        \"name\": \"AlbertoVol1\",\n        \"id\": \"02a82f1b00000003\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f1b00000003\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f1b00000003/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bccf00000003\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739d00000001\"\n            }\n        ]\n    },\n    {\n        \"mappedSdcInfo\": [\n            {\n                \"sdcId\": \"af2bf1c300000000\",\n                \"sdcIp\": \"192.168.218.13\",\n                \"limitIops\": 1000,\n                \"limitBwInMbps\": 0\n            }\n        ],\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739d00000001\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bcd000000004\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThickProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 8388608,\n        \"creationTime\": 1574073272,\n        \"name\": \"albvol3\",\n        \"id\": \"02a82f1c00000004\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f1c00000004\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f1c00000004/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bcd000000004\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739d00000001\"\n            }\n        ]\n    },\n    {\n        \"mappedSdcInfo\": [\n            {\n                \"sdcId\": \"af2bf1c500000002\",\n                \"sdcIp\": \"192.168.219.12\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c400000001\",\n                \"sdcIp\": \"192.168.219.11\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c300000000\",\n                \"sdcIp\": \"192.168.218.13\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            }\n        ],\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739c00000000\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bcca00000000\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThinProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 4294967296,\n        \"creationTime\": 1571208563,\n        \"name\": \"VxFlexVol01\",\n        \"id\": \"02a82f1600000000\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f1600000000\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f1600000000/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bcca00000000\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739c00000000\"\n            }\n        ]\n    },\n    {\n        \"mappedSdcInfo\": [\n            {\n                \"sdcId\": \"af2bf1c400000001\",\n                \"sdcIp\": \"192.168.219.11\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c500000002\",\n                \"sdcIp\": \"192.168.219.12\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            }\n        ],\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739d00000001\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bcd700000005\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThickProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 8388608,\n        \"creationTime\": 1574074530,\n        \"name\": \"albvol2\",\n        \"id\": \"02a82f2300000005\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f2300000005\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f2300000005/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bcd700000005\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739d00000001\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Change Mapped SDC limits",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"sdcId\": \"2996dcc600000003\",\n\t\"iopsLimit\":\"100\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{ip}}/api/instances/Volume::09681f1000000000/action/setMappedSdcLimits",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"Volume::09681f1000000000",
+						"action",
+						"setMappedSdcLimits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Change Mapped SDC limits",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"sdcId\": \"2996dcc600000003\",\n\t\"iopsLimit\":\"100\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ip}}/api/instances/Volume::09681f1000000000/action/setMappedSdcLimits",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"instances",
+								"Volume::09681f1000000000",
+								"action",
+								"setMappedSdcLimits"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 13 Dec 2019 07:05:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{}"
+				}
+			]
+		},
+		{
+			"name": "QuerySelectedVolStats",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"allIds\":\"\",\n\t\"properties\":[\"numOfMappedSdcs\",\"mappedSdcIds\"]\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{ip}}/api/types/Volume/instances/action/querySelectedStatistics",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"Volume",
+						"instances",
+						"action",
+						"querySelectedStatistics"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "QuerySelectedVolStats",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"allIds\":\"\",\n\t\"properties\":[\"numOfMappedSdcs\",\"mappedSdcIds\"]\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ip}}/api/types/Volume/instances/action/querySelectedStatistics",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"Volume",
+								"instances",
+								"action",
+								"querySelectedStatistics"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Nov 2019 21:29:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"02a82f1b00000003\": {\n        \"numOfMappedSdcs\": 0,\n        \"mappedSdcIds\": []\n    },\n    \"02a82f1a00000002\": {\n        \"numOfMappedSdcs\": 3,\n        \"mappedSdcIds\": [\n            \"af2bf1c500000002\",\n            \"af2bf1c400000001\",\n            \"af2bf1c300000000\"\n        ]\n    },\n    \"02a82f1c00000004\": {\n        \"numOfMappedSdcs\": 1,\n        \"mappedSdcIds\": [\n            \"af2bf1c300000000\"\n        ]\n    },\n    \"02a82f2300000005\": {\n        \"numOfMappedSdcs\": 2,\n        \"mappedSdcIds\": [\n            \"af2bf1c400000001\",\n            \"af2bf1c500000002\"\n        ]\n    },\n    \"02a82f1900000001\": {\n        \"numOfMappedSdcs\": 3,\n        \"mappedSdcIds\": [\n            \"af2bf1c500000002\",\n            \"af2bf1c400000001\",\n            \"af2bf1c300000000\"\n        ]\n    },\n    \"02a82f1600000000\": {\n        \"numOfMappedSdcs\": 3,\n        \"mappedSdcIds\": [\n            \"af2bf1c500000002\",\n            \"af2bf1c400000001\",\n            \"af2bf1c300000000\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create volume",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"volumeSizeInGb\": \"2\",\n    \"storagePoolId\": \"7285739d00000001\",\n    \"name\": \"AlbertoVol4\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{ip}}/api/types/Volume/instances",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"Volume",
+						"instances"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create volume",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"volumeSizeInGb\": \"2\",\n    \"storagePoolId\": \"7285739d00000001\",\n    \"name\": \"AlbertoVol4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ip}}/api/types/Volume/instances",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"Volume",
+								"instances"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Nov 2019 21:30:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"02a82f2400000006\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET SDC volumes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/Sdc::af2bf1c300000000/relationships/Volume",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"Sdc::af2bf1c300000000",
+						"relationships",
+						"Volume"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET SDC volumes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/instances/Sdc::af2bf1c300000000/relationships/Volume",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"instances",
+								"Sdc::af2bf1c300000000",
+								"relationships",
+								"Volume"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Nov 2019 21:31:13 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"mappedSdcInfo\": [\n            {\n                \"sdcId\": \"af2bf1c300000000\",\n                \"sdcIp\": \"192.168.218.13\",\n                \"limitIops\": 1000,\n                \"limitBwInMbps\": 0\n            }\n        ],\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739d00000001\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bcd000000004\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThickProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 8388608,\n        \"creationTime\": 1574073272,\n        \"name\": \"albvol3\",\n        \"id\": \"02a82f1c00000004\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f1c00000004\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f1c00000004/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bcd000000004\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739d00000001\"\n            }\n        ]\n    },\n    {\n        \"mappedSdcInfo\": [\n            {\n                \"sdcId\": \"af2bf1c500000002\",\n                \"sdcIp\": \"192.168.219.12\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c400000001\",\n                \"sdcIp\": \"192.168.219.11\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c300000000\",\n                \"sdcIp\": \"192.168.218.13\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            }\n        ],\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739d00000001\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bcce00000002\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThinProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 10737418240,\n        \"creationTime\": 1571818441,\n        \"name\": \"VxFlexHddVolume01\",\n        \"id\": \"02a82f1a00000002\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f1a00000002\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f1a00000002/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bcce00000002\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739d00000001\"\n            }\n        ]\n    },\n    {\n        \"mappedSdcInfo\": [\n            {\n                \"sdcId\": \"af2bf1c500000002\",\n                \"sdcIp\": \"192.168.219.12\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c400000001\",\n                \"sdcIp\": \"192.168.219.11\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c300000000\",\n                \"sdcIp\": \"192.168.218.13\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            }\n        ],\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739d00000001\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bccd00000001\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThinProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 528482304,\n        \"creationTime\": 1571285853,\n        \"name\": \"IsoVolOnVxFlex\",\n        \"id\": \"02a82f1900000001\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f1900000001\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f1900000001/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bccd00000001\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739d00000001\"\n            }\n        ]\n    },\n    {\n        \"mappedSdcInfo\": [\n            {\n                \"sdcId\": \"af2bf1c500000002\",\n                \"sdcIp\": \"192.168.219.12\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c400000001\",\n                \"sdcIp\": \"192.168.219.11\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            },\n            {\n                \"sdcId\": \"af2bf1c300000000\",\n                \"sdcIp\": \"192.168.218.13\",\n                \"limitIops\": 0,\n                \"limitBwInMbps\": 0\n            }\n        ],\n        \"originalExpiryTime\": 0,\n        \"retentionLevels\": [],\n        \"snplIdOfSourceVolume\": null,\n        \"storagePoolId\": \"7285739c00000000\",\n        \"dataLayout\": \"MediumGranularity\",\n        \"vtreeId\": \"1247bcca00000000\",\n        \"snplIdOfAutoSnapshot\": null,\n        \"volumeType\": \"ThinProvisioned\",\n        \"consistencyGroupId\": null,\n        \"ancestorVolumeId\": null,\n        \"notGenuineSnapshot\": false,\n        \"useRmcache\": false,\n        \"managedBy\": \"ScaleIO\",\n        \"lockedAutoSnapshot\": false,\n        \"lockedAutoSnapshotMarkedForRemoval\": false,\n        \"autoSnapshotGroupId\": null,\n        \"compressionMethod\": \"Invalid\",\n        \"sizeInKb\": 4294967296,\n        \"creationTime\": 1571208563,\n        \"name\": \"VxFlexVol01\",\n        \"id\": \"02a82f1600000000\",\n        \"links\": [\n            {\n                \"rel\": \"self\",\n                \"href\": \"/api/instances/Volume::02a82f1600000000\"\n            },\n            {\n                \"rel\": \"/api/Volume/relationship/Statistics\",\n                \"href\": \"/api/instances/Volume::02a82f1600000000/relationships/Statistics\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/vtreeId\",\n                \"href\": \"/api/instances/VTree::1247bcca00000000\"\n            },\n            {\n                \"rel\": \"/api/parent/relationship/storagePoolId\",\n                \"href\": \"/api/instances/StoragePool::7285739c00000000\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "QuerySelectedSdcStats",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"allIds\":\"\",\n\t\"properties\":[\"volumeIds\"]\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{ip}}/api/types/Sdc/instances/action/querySelectedStatistics",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"types",
+						"Sdc",
+						"instances",
+						"action",
+						"querySelectedStatistics"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "QuerySelectedSdcStats",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"allIds\":\"\",\n\t\"properties\":[\"volumeIds\"]\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ip}}/api/types/Sdc/instances/action/querySelectedStatistics",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"types",
+								"Sdc",
+								"instances",
+								"action",
+								"querySelectedStatistics"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Nov 2019 21:31:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"af2bf1c500000002\": {\n        \"volumeIds\": [\n            \"02a82f2300000005\",\n            \"02a82f1a00000002\",\n            \"02a82f1900000001\",\n            \"02a82f1600000000\"\n        ]\n    },\n    \"af2bf1c300000000\": {\n        \"volumeIds\": [\n            \"02a82f1c00000004\",\n            \"02a82f1a00000002\",\n            \"02a82f1900000001\",\n            \"02a82f1600000000\"\n        ]\n    },\n    \"af2bf1c400000001\": {\n        \"volumeIds\": [\n            \"02a82f2300000005\",\n            \"02a82f1a00000002\",\n            \"02a82f1900000001\",\n            \"02a82f1600000000\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Volume",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"removeMode\": \"ONLY_ME\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{ip}}/api/instances/Volume::02a82f2400000006/action/removeVolume",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"Volume::02a82f2400000006",
+						"action",
+						"removeVolume"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Volume",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"removeMode\": \"ONLY_ME\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ip}}/api/instances/Volume::02a82f2400000006/action/removeVolume",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"instances",
+								"Volume::02a82f2400000006",
+								"action",
+								"removeVolume"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Nov 2019 21:32:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{}"
+				}
+			]
+		},
+		{
+			"name": "Remove mapped SDC",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sdcId\": \"af2bf1c400000001\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{ip}}/api/instances/Volume::02a82f2300000005/action/removeMappedSdc",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"Volume::02a82f2300000005",
+						"action",
+						"removeMappedSdc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Remove mapped SDC",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"sdcId\": \"af2bf1c300000000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ip}}/api/instances/Volume::02a82f2300000005/action/removeMappedSdc",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"instances",
+								"Volume::02a82f2300000005",
+								"action",
+								"removeMappedSdc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 18 Nov 2019 21:25:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{}"
+				}
+			]
+		},
+		{
+			"name": "Get System Statistics",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/System::4100df0534a55c0f/relationships/Statistics",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"System::4100df0534a55c0f",
+						"relationships",
+						"Statistics"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Query System statistics",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/instances/System::4100df0534a55c0f/relationships/Statistics",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"instances",
+								"System::4100df0534a55c0f",
+								"relationships",
+								"Statistics"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Dec 2019 22:35:43 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"numOfVtreeMigrationsInSystem\": 0,\n    \"pendingMovingOutBckRebuildJobs\": 0,\n    \"rfcachePoolWritePending\": 0,\n    \"degradedHealthyCapacityInKb\": 0,\n    \"activeMovingOutFwdRebuildJobs\": 0,\n    \"rfcachePoolWritePendingG1Sec\": 0,\n    \"bckRebuildWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"netFglUncompressedDataSizeInKb\": 0,\n    \"primaryReadFromDevBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"BackgroundScannedInMB\": 205007,\n    \"numOfSnapPolicies\": 0,\n    \"maxUserDataCapacityInKb\": 294437888,\n    \"rfcacheReadsSkippedAlignedSizeTooLarge\": 0,\n    \"rfcachePoolSize\": 0,\n    \"pendingMovingInRebalanceJobs\": 0,\n    \"rfcacheWritesSkippedHeavyLoad\": 0,\n    \"rfcachePoolPagesInuse\": 0,\n    \"unusedCapacityInKb\": 277660672,\n    \"checksumCapacityInKb\": 0,\n    \"rmcacheEntryEvictionCount\": 0,\n    \"rfcacheFdAvgWriteTime\": 0,\n    \"totalReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"totalWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rmPendingAllocatedInKb\": 0,\n    \"numOfVolumes\": 1,\n    \"rfcacheIosOutstanding\": 0,\n    \"rmcacheBigBlockEvictionSizeCountInKb\": 0,\n    \"capacityAvailableForVolumeAllocationInKb\": 134217728,\n    \"numOfMappedToAllVolumes\": 0,\n    \"volMigrationWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"thinAndSnapshotRatio\": 1,\n    \"rebuildPerReceiveJobNetThrottlingInKbps\": 0,\n    \"fglUserDataCapacityInKb\": 0,\n    \"rmcache32kbEntryCount\": 0,\n    \"rfcachePoolEvictions\": 0,\n    \"rfcachePoolNumCacheDevs\": 0,\n    \"activeMovingInNormRebuildJobs\": 0,\n    \"aggregateCompressionLevel\": \"Uncompressed\",\n    \"rfcacheFdWriteTimeGreater500Millis\": 0,\n    \"netUserDataCapacityInKb\": 8388608,\n    \"rmcacheSkipCountCacheAllBusy\": 0,\n    \"fixedReadErrorCount\": 0,\n    \"numOfSdc\": 4,\n    \"rfcachePoolNumSrcDevs\": 0,\n    \"rfcacheFdMonitorErrorStuckIo\": 0,\n    \"overallUsageRatio\": 1,\n    \"volMigrationReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheReadsSkippedInternalError\": 0,\n    \"rfcachePoolWritePendingG500Micro\": 0,\n    \"pendingMovingInBckRebuildJobs\": 0,\n    \"netCapacityInUseNoOverheadInKb\": 8388608,\n    \"activeBckRebuildCapacityInKb\": 0,\n    \"snapPolicyIds\": [],\n    \"rebalanceCapacityInKb\": 0,\n    \"userDataTrimeBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"numDevErrors\": 0,\n    \"rfcachePoolInLowMemoryCondition\": 0,\n    \"rfcacheReadsSkippedLowResources\": 0,\n    \"thinCapacityInUseInKb\": 0,\n    \"numSnapshotsTaken\": 0,\n    \"rfcachePoolLowResourcesInitiatedPassthroughMode\": 0,\n    \"rfcachePoolWritePendingG10Millis\": 0,\n    \"rfcachePoolWriteHit\": 0,\n    \"rfcacheWritesSkippedInternalError\": 0,\n    \"rmcache128kbEntryCount\": 0,\n    \"rfcacheFdReadTimeGreater5Sec\": 0,\n    \"netUserDataCapacityNoTrimInKb\": 8388608,\n    \"rfcacheWritesSkippedCacheMiss\": 0,\n    \"numOscillationCountersPassedThreshold\": 0,\n    \"numOfFaultSets\": 0,\n    \"degradedFailedCapacityInKb\": 0,\n    \"BackgroundScanCompareCount\": 0,\n    \"activeNormRebuildCapacityInKb\": 0,\n    \"fglSparesInKb\": 0,\n    \"snapCapacityInUseInKb\": 0,\n    \"rfcacheFdIoErrors\": 0,\n    \"rfcacheWriteMiss\": 0,\n    \"compressionRatio\": 1,\n    \"primaryReadFromRmcacheBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"numOfVtrees\": 1,\n    \"userDataCapacityNoTrimInKb\": 16777216,\n    \"rfacheReadHit\": 0,\n    \"numSmartAttributesPassedThreshold\": 0,\n    \"rfcachePooIosOutstanding\": 0,\n    \"compressedDataCompressionRatio\": \"NaN\",\n    \"pendingMovingCapacityInKb\": 0,\n    \"numOfSnapshots\": 0,\n    \"rmcacheBigBlockEvictionCount\": 0,\n    \"sdcIds\": [\n        \"2995562600000000\",\n        \"2995562700000001\",\n        \"2995562800000002\",\n        \"2996dcc600000003\"\n    ],\n    \"rmcacheNoEvictionCount\": 0,\n    \"pendingFwdRebuildCapacityInKb\": 0,\n    \"tempCapacityInKb\": 0,\n    \"rmcacheCurrNumOf128kbEntries\": 0,\n    \"normRebuildCapacityInKb\": 0,\n    \"rfcachePoolReadPendingG1Millis\": 0,\n    \"numOfAccelerationPools\": 0,\n    \"logWrittenBlocksInKb\": 0,\n    \"numOfThickBaseVolumes\": 1,\n    \"primaryWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rmcacheSizeInUseInKb\": 0,\n    \"rfcachePoolReadPendingG10Millis\": 0,\n    \"activeRebalanceCapacityInKb\": 0,\n    \"rfcacheReadsSkippedLockIos\": 0,\n    \"unreachableUnusedCapacityInKb\": 0,\n    \"netProvisionedAddressesInKb\": 8388608,\n    \"rfcachePoolReadPendingG500Micro\": 0,\n    \"rmcache8kbEntryCount\": 0,\n    \"trimmedUserDataCapacityInKb\": 0,\n    \"provisionedAddressesInKb\": 16777216,\n    \"numOfVolumesInDeletion\": 0,\n    \"maxCapacityInKb\": 327152640,\n    \"pendingMovingOutFwdRebuildJobs\": 0,\n    \"rmcacheSkipCountLargeIo\": 0,\n    \"rmPendingThickInKb\": 0,\n    \"protectedCapacityInKb\": 16777216,\n    \"secondaryWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"normRebuildReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"thinCapacityAllocatedInKb\": 0,\n    \"netFglUserDataCapacityInKb\": 0,\n    \"metadataOverheadInKb\": 0,\n    \"thinCapacityAllocatedInKm\": 0,\n    \"rmcacheCurrNumOf8kbEntries\": 0,\n    \"rebalanceWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"primaryVacInKb\": 8388608,\n    \"numVolumeMigrationsPerformed\": 0,\n    \"netSnapshotCapacityInKb\": 0,\n    \"secondaryVacInKb\": 8388608,\n    \"numOfDevices\": 3,\n    \"numCmatrixPolicyChanges\": 0,\n    \"rfcachePoolWriteMiss\": 0,\n    \"rfcachePoolReadPendingG1Sec\": 0,\n    \"failedCapacityInKb\": 0,\n    \"netMetadataOverheadInKb\": 0,\n    \"rmcache4kbEntryCount\": 0,\n    \"rfcachePoolWritePendingG1Millis\": 0,\n    \"rfcacheFdReadTimeGreater1Min\": 0,\n    \"rebalanceWaitSendQLength\": 0,\n    \"rebalancePerReceiveJobNetThrottlingInKbps\": 0,\n    \"activeMovingOutBckRebuildJobs\": 0,\n    \"rfcacheReadsFromCache\": 0,\n    \"rfcacheFdReadTimeGreater1Sec\": 0,\n    \"pendingMovingInNormRebuildJobs\": 0,\n    \"rmcache64kbEntryCount\": 0,\n    \"failedVacInKb\": 0,\n    \"primaryReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"fglUncompressedDataSizeInKb\": 0,\n    \"fglCompressedDataSizeInKb\": 0,\n    \"pendingRebalanceCapacityInKb\": 0,\n    \"rfcacheAvgReadTime\": 0,\n    \"semiProtectedCapacityInKb\": 0,\n    \"rfcachePoolSourceIdMismatch\": 0,\n    \"mgUserDdataCcapacityInKb\": 16777216,\n    \"rfcacheFdAvgReadTime\": 0,\n    \"snapshotCapacityInKb\": 0,\n    \"netMgUserDataCapacityInKb\": 8388608,\n    \"fwdRebuildReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheWritesReceived\": 0,\n    \"rfcachePoolSuspendedIos\": 0,\n    \"netUnusedCapacityInKb\": 138830336,\n    \"protectedVacInKb\": 16777216,\n    \"activeMovingRebalanceJobs\": 0,\n    \"bckRebuildCapacityInKb\": 0,\n    \"activeMovingInFwdRebuildJobs\": 0,\n    \"netTrimmedUserDataCapacityInKb\": 0,\n    \"pendingMovingRebalanceJobs\": 0,\n    \"degradedHealthyVacInKb\": 0,\n    \"rfcachePoolLockTimeGreater1Sec\": 0,\n    \"semiProtectedVacInKb\": 0,\n    \"userDataReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rmcacheCurrNumOf4kbEntries\": 0,\n    \"pendingBckRebuildCapacityInKb\": 0,\n    \"capacityLimitInKb\": 327152640,\n    \"numOfProtectionDomains\": 1,\n    \"activeMovingCapacityInKb\": 0,\n    \"rfcacheIosSkipped\": 0,\n    \"rfcacheFdWriteTimeGreater5Sec\": 0,\n    \"inMaintenanceVacInKb\": 0,\n    \"userDataWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"netFglSparesInKb\": 0,\n    \"rfcacheReadsSkipped\": 0,\n    \"rfcachePoolReadHit\": 0,\n    \"rebuildWaitSendQLength\": 0,\n    \"numOfUnmappedVolumes\": 0,\n    \"rmcacheCurrNumOf64kbEntries\": 0,\n    \"tempCapacityVacInKb\": 0,\n    \"volumeAddressSpaceInKb\": 8388608,\n    \"rfcacheWritesSkippedMaxIoSize\": 0,\n    \"netMaxUserDataCapacityInKb\": 147218944,\n    \"numSdsReconnections\": 3,\n    \"atRestCapacityInKb\": 8388608,\n    \"rfacheWriteHit\": 0,\n    \"bckRebuildReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheSourceDeviceWrites\": 0,\n    \"rfcacheFdInlightReads\": 0,\n    \"spareCapacityInKb\": 32714752,\n    \"rfcacheIoErrors\": 0,\n    \"numOfSds\": 3,\n    \"normRebuildWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"capacityInUseInKb\": 16777216,\n    \"numSdSdcDisconnections\": 0,\n    \"rebalanceReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rmcacheSkipCountUnaligned4kbIo\": 0,\n    \"rfcacheReadsSkippedMaxIoSize\": 0,\n    \"secondaryReadFromDevBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcachePoolSuspendedPequestsRedundantSearchs\": 0,\n    \"secondaryReadFromRmcacheBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"secondaryReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheWritesSkippedStuckIo\": 0,\n    \"numOfStoragePools\": 1,\n    \"rfcachePoolCachePages\": 0,\n    \"inMaintenanceCapacityInKb\": 0,\n    \"protectionDomainIds\": [\n        \"fc9faded00000000\"\n    ],\n    \"netFglCompressedDataSizeInKb\": 0,\n    \"vtreeMigrationWaitSendQLength\": 0,\n    \"inUseVacInKb\": 16777216,\n    \"fwdRebuildCapacityInKb\": 0,\n    \"thickCapacityInUseInKb\": 16777216,\n    \"activeMovingInRebalanceJobs\": 0,\n    \"rmcacheCurrNumOf32kbEntries\": 0,\n    \"rfcacheWritesSkippedLowResources\": 0,\n    \"capacityInUseNoOverheadInKb\": 16777216,\n    \"rfcacheFdCacheOverloaded\": 0,\n    \"rmcache16kbEntryCount\": 0,\n    \"rmcacheEntryEvictionSizeCountInKb\": 0,\n    \"rfcacheSkippedUnlinedWrite\": 0,\n    \"netCapacityInUseInKb\": 8388608,\n    \"rfcacheAvgWriteTime\": 0,\n    \"pendingNormRebuildCapacityInKb\": 0,\n    \"vtreeMigrationPerReceiveJobNetThrottlingInKbps\": 0,\n    \"rfcacheFdReadTimeGreater500Millis\": 0,\n    \"pendingMovingOutNormrebuildJobs\": 0,\n    \"rfcacheSourceDeviceReads\": 0,\n    \"rmcacheCurrNumOf16kbEntries\": 0,\n    \"volumeAllocationLimitInKb\": 1459617792,\n    \"rfcacheReadsPending\": 0,\n    \"rfcacheReadsSkippedHeavyLoad\": 0,\n    \"fwdRebuildWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheFdInlightWrites\": 0,\n    \"rfcacheReadMiss\": 0,\n    \"userDataCapacityInKb\": 16777216,\n    \"rfcacheFdReadsReceived\": 0,\n    \"activeMovingInBckRebuildJobs\": 0,\n    \"movingCapacityInKb\": 0,\n    \"pendingMovingInFwdRebuildJobs\": 0,\n    \"rfcacheReadsReceived\": 0,\n    \"rfcachePoolReadsPending\": 0,\n    \"snapCapacityInUseOccupiedInKb\": 0,\n    \"vtreeAddresSpaceInKb\": 8388608,\n    \"activeFwdRebuildCapacityInKb\": 0,\n    \"rfcacheReadsSkippedStuckIo\": 0,\n    \"activeMovingOutNormRebuildJobs\": 0,\n    \"rfcacheFdWritesReceived\": 0,\n    \"rmcacheSizeInKb\": 393216,\n    \"rfcacheFdWriteTimeGreater1Min\": 0,\n    \"rfcacheFdWriteTimeGreater1Sec\": 0,\n    \"rfcacheWritePending\": 0,\n    \"numOfThinBaseVolumes\": 0,\n    \"numOfRfcacheDevices\": 0,\n    \"degradedFailedVacInKb\": 0,\n    \"rfcachePoolIoTimeGreater1Min\": 0,\n    \"rfcachePoolReadMiss\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Storage Pool Statistics",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/StoragePool::b8ab08b700000000/relationships/Statistics",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"StoragePool::b8ab08b700000000",
+						"relationships",
+						"Statistics"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Storage Pool Statistics",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/instances/StoragePool::b8ab08b700000000/relationships/Statistics",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"instances",
+								"StoragePool::b8ab08b700000000",
+								"relationships",
+								"Statistics"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Dec 2019 22:49:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pendingMovingOutBckRebuildJobs\": 0,\n    \"deviceIds\": [\n        \"7afb76f600000000\",\n        \"7afa76f500010000\",\n        \"7afb76f400020000\"\n    ],\n    \"netSnapshotCapacityInKb\": 0,\n    \"totalChangelogRecordsToDestage\": 0,\n    \"secondaryVacInKb\": 8388608,\n    \"numOfDevices\": 3,\n    \"degradedHealthyCapacityInKb\": 0,\n    \"activeMovingOutFwdRebuildJobs\": 0,\n    \"checksumCalculationCompletionPercent\": 100,\n    \"bckRebuildWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"failedCapacityInKb\": 0,\n    \"netFglUncompressedDataSizeInKb\": 0,\n    \"primaryReadFromDevBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"netMetadataOverheadInKb\": 0,\n    \"BackgroundScannedInMB\": 205292,\n    \"volumeIds\": [\n        \"09681f1000000000\"\n    ],\n    \"maxUserDataCapacityInKb\": 294437888,\n    \"rfcacheReadsFromCache\": 0,\n    \"activeMovingOutBckRebuildJobs\": 0,\n    \"pendingMovingInNormRebuildJobs\": 0,\n    \"rfcacheReadsSkippedAlignedSizeTooLarge\": 0,\n    \"failedVacInKb\": 0,\n    \"primaryReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"pendingMovingInRebalanceJobs\": 0,\n    \"fglUncompressedDataSizeInKb\": 0,\n    \"fglCompressedDataSizeInKb\": 0,\n    \"pendingRebalanceCapacityInKb\": 0,\n    \"rfcacheWritesSkippedHeavyLoad\": 0,\n    \"unusedCapacityInKb\": 277660672,\n    \"rfcacheAvgReadTime\": 0,\n    \"semiProtectedCapacityInKb\": 0,\n    \"checksumCapacityInKb\": 0,\n    \"totalReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"mgUserDdataCcapacityInKb\": 16777216,\n    \"snapshotCapacityInKb\": 0,\n    \"netMgUserDataCapacityInKb\": 8388608,\n    \"fwdRebuildReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"totalWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheWritesReceived\": 0,\n    \"rmPendingAllocatedInKb\": 0,\n    \"numOfVolumes\": 1,\n    \"netUnusedCapacityInKb\": 138830336,\n    \"rfcacheIosOutstanding\": 0,\n    \"protectedVacInKb\": 16777216,\n    \"numOfMappedToAllVolumes\": 0,\n    \"capacityAvailableForVolumeAllocationInKb\": 134217728,\n    \"totalChecksumMigrationSizeInKB\": 0,\n    \"activeMovingRebalanceJobs\": 0,\n    \"bckRebuildCapacityInKb\": 0,\n    \"activeMovingInFwdRebuildJobs\": 0,\n    \"netTrimmedUserDataCapacityInKb\": 0,\n    \"pendingMovingRebalanceJobs\": 0,\n    \"degradedHealthyVacInKb\": 0,\n    \"volMigrationWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"semiProtectedVacInKb\": 0,\n    \"thinAndSnapshotRatio\": 1,\n    \"userDataReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"fglUserDataCapacityInKb\": 0,\n    \"pendingBckRebuildCapacityInKb\": 0,\n    \"capacityLimitInKb\": 327152640,\n    \"vtreeIds\": [\n        \"67083ca600000000\"\n    ],\n    \"activeMovingInNormRebuildJobs\": 0,\n    \"activeMovingCapacityInKb\": 0,\n    \"rfcacheIosSkipped\": 0,\n    \"aggregateCompressionLevel\": \"Uncompressed\",\n    \"userDataWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"inMaintenanceVacInKb\": 0,\n    \"netFglSparesInKb\": 0,\n    \"rfcacheReadsSkipped\": 0,\n    \"numOfUnmappedVolumes\": 0,\n    \"netUserDataCapacityInKb\": 8388608,\n    \"tempCapacityVacInKb\": 0,\n    \"volumeAddressSpaceInKb\": 8388608,\n    \"currentFglMigrationSizeInKb\": 0,\n    \"rfcacheWritesSkippedMaxIoSize\": 0,\n    \"fixedReadErrorCount\": 0,\n    \"netMaxUserDataCapacityInKb\": 147218944,\n    \"numOfMigratingVtrees\": 0,\n    \"atRestCapacityInKb\": 8388608,\n    \"rfacheWriteHit\": 0,\n    \"overallUsageRatio\": 1,\n    \"bckRebuildReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"volMigrationReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"netCapacityInUseNoOverheadInKb\": 8388608,\n    \"rfcacheReadsSkippedInternalError\": 0,\n    \"pendingMovingInBckRebuildJobs\": 0,\n    \"activeBckRebuildCapacityInKb\": 0,\n    \"rfcacheSourceDeviceWrites\": 0,\n    \"spareCapacityInKb\": 32714752,\n    \"rebalanceCapacityInKb\": 0,\n    \"numChangelogRecordsLeftToDestage\": 0,\n    \"normRebuildWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"userDataTrimeBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheIoErrors\": 0,\n    \"capacityInUseInKb\": 16777216,\n    \"rfcacheReadsSkippedLowResources\": 0,\n    \"rebalanceReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"totalChecksumProtectedCombsNum\": 0,\n    \"rfcacheReadsSkippedMaxIoSize\": 0,\n    \"thinCapacityInUseInKb\": 0,\n    \"secondaryReadFromDevBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"secondaryReadFromRmcacheBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"secondaryReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheWritesSkippedInternalError\": 0,\n    \"rfcacheWritesSkippedStuckIo\": 0,\n    \"inMaintenanceCapacityInKb\": 0,\n    \"netFglCompressedDataSizeInKb\": 0,\n    \"inUseVacInKb\": 16777216,\n    \"fwdRebuildCapacityInKb\": 0,\n    \"netUserDataCapacityNoTrimInKb\": 8388608,\n    \"rfcacheWritesSkippedCacheMiss\": 0,\n    \"thickCapacityInUseInKb\": 16777216,\n    \"degradedFailedCapacityInKb\": 0,\n    \"activeMovingInRebalanceJobs\": 0,\n    \"migratingVolumeIds\": [],\n    \"BackgroundScanCompareCount\": 0,\n    \"activeNormRebuildCapacityInKb\": 0,\n    \"numOfMigratingVolumes\": 0,\n    \"snapCapacityInUseInKb\": 0,\n    \"fglSparesInKb\": 0,\n    \"rfcacheWriteMiss\": 0,\n    \"compressionRatio\": 1,\n    \"rfcacheWritesSkippedLowResources\": 0,\n    \"primaryReadFromRmcacheBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"migratingVtreeIds\": [],\n    \"numOfVtrees\": 1,\n    \"capacityInUseNoOverheadInKb\": 16777216,\n    \"userDataCapacityNoTrimInKb\": 16777216,\n    \"rfacheReadHit\": 0,\n    \"currentChecksumMigrationSizeInKB\": 0,\n    \"rfcacheSkippedUnlinedWrite\": 0,\n    \"compressedDataCompressionRatio\": \"NaN\",\n    \"netCapacityInUseInKb\": 8388608,\n    \"numOfOutgoingMigrations\": 0,\n    \"rfcacheAvgWriteTime\": 0,\n    \"pendingMovingCapacityInKb\": 0,\n    \"pendingNormRebuildCapacityInKb\": 0,\n    \"numOfSnapshots\": 0,\n    \"pendingFwdRebuildCapacityInKb\": 0,\n    \"tempCapacityInKb\": 0,\n    \"totalFglMigrationSizeInKb\": 0,\n    \"pendingMovingOutNormrebuildJobs\": 0,\n    \"normRebuildCapacityInKb\": 0,\n    \"rfcacheSourceDeviceReads\": 0,\n    \"logWrittenBlocksInKb\": 0,\n    \"primaryWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"numOfThickBaseVolumes\": 1,\n    \"rfcacheReadsPending\": 0,\n    \"volumeAllocationLimitInKb\": 1459617792,\n    \"rfcacheReadsSkippedHeavyLoad\": 0,\n    \"fwdRebuildWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheReadMiss\": 0,\n    \"activeRebalanceCapacityInKb\": 0,\n    \"currentChecksumProtectedCombsNum\": 0,\n    \"userDataCapacityInKb\": 16777216,\n    \"activeMovingInBckRebuildJobs\": 0,\n    \"movingCapacityInKb\": 0,\n    \"rfcacheReadsSkippedLockIos\": 0,\n    \"unreachableUnusedCapacityInKb\": 0,\n    \"netProvisionedAddressesInKb\": 8388608,\n    \"pendingMovingInFwdRebuildJobs\": 0,\n    \"rfcacheReadsReceived\": 0,\n    \"trimmedUserDataCapacityInKb\": 0,\n    \"provisionedAddressesInKb\": 16777216,\n    \"spSdsIds\": [\n        \"fbbf357300020000\",\n        \"fbbf357400010000\",\n        \"fbbf357500000000\"\n    ],\n    \"numOfVolumesInDeletion\": 0,\n    \"pendingMovingOutFwdRebuildJobs\": 0,\n    \"maxCapacityInKb\": 327152640,\n    \"snapCapacityInUseOccupiedInKb\": 0,\n    \"vtreeAddresSpaceInKb\": 8388608,\n    \"activeFwdRebuildCapacityInKb\": 0,\n    \"rfcacheReadsSkippedStuckIo\": 0,\n    \"rmPendingThickInKb\": 0,\n    \"activeMovingOutNormRebuildJobs\": 0,\n    \"protectedCapacityInKb\": 16777216,\n    \"secondaryWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"normRebuildReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"rfcacheWritePending\": 0,\n    \"numOfThinBaseVolumes\": 0,\n    \"thinCapacityAllocatedInKb\": 0,\n    \"degradedFailedVacInKb\": 0,\n    \"netFglUserDataCapacityInKb\": 0,\n    \"metadataOverheadInKb\": 0,\n    \"numOfIncomingVtreeMigrations\": 0,\n    \"thinCapacityAllocatedInKm\": 0,\n    \"rebalanceWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"primaryVacInKb\": 8388608\n}"
+				}
+			]
+		},
+		{
+			"name": "Get SDC statistics",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/Sdc::2996dcc600000003/relationships/Statistics",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"Sdc::2996dcc600000003",
+						"relationships",
+						"Statistics"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get SDC statistics",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/instances/Sdc::2996dcc600000003/relationships/Statistics",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"instances",
+								"Sdc::2996dcc600000003",
+								"relationships",
+								"Statistics"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Dec 2019 22:55:05 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"numOfMappedVolumes\": 1,\n    \"userDataTrimeBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"userDataWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"userDataReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"volumeIds\": [\n        \"09681f1000000000\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Volume Statistics",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{token}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/instances/Volume::09681f1000000000/relationships/Statistics",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"instances",
+						"Volume::09681f1000000000",
+						"relationships",
+						"Statistics"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Volume Statistics",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/instances/Volume::09681f1000000000/relationships/Statistics",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"instances",
+								"Volume::09681f1000000000",
+								"relationships",
+								"Statistics"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 12 Dec 2019 22:57:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ScaleIO Gateway"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"numOfChildVolumes\": 0,\n    \"userDataTrimeBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"userDataWriteBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"initiatorSdcId\": null,\n    \"mappedSdcIds\": [\n        \"2996dcc600000003\"\n    ],\n    \"registrationKey\": null,\n    \"registrationKeys\": [],\n    \"descendantVolumeIds\": [],\n    \"numOfMappedSdcs\": 1,\n    \"reservationType\": \"NotReserved\",\n    \"numOfDescendantVolumes\": 0,\n    \"userDataReadBwc\": {\n        \"numSeconds\": 0,\n        \"totalWeightInKb\": 0,\n        \"numOccured\": 0\n    },\n    \"childVolumeIds\": []\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
