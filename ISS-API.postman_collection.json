@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "69aa5240-1d30-4fd5-9b57-be447f41d7cd",
+		"name": "ISS-API",
+		"description": "API that provides interesting facts about the Internation Space Station\n\nThere are 2 requests that relate to the position of the ISS and another one about the astronauts onboard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Current",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.open-notify.org/iss-now.json",
+					"protocol": "http",
+					"host": [
+						"api",
+						"open-notify",
+						"org"
+					],
+					"path": [
+						"iss-now.json"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ISS Current Location",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.open-notify.org/iss-now.json",
+							"protocol": "http",
+							"host": [
+								"api",
+								"open-notify",
+								"org"
+							],
+							"path": [
+								"iss-now.json"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.10.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 05 Aug 2019 12:41:46 GMT"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "111"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 inprtsyd03p.corp.emc.com:80 (Cisco-WSA/10.5.2-072)"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": 1565008906,\n    \"message\": \"success\",\n    \"iss_position\": {\n        \"latitude\": \"30.5216\",\n        \"longitude\": \"0.0825\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Passes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.open-notify.org/iss-pass.json?lat=33.8688&lon=151.2093",
+					"protocol": "http",
+					"host": [
+						"api",
+						"open-notify",
+						"org"
+					],
+					"path": [
+						"iss-pass.json"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "33.8688"
+						},
+						{
+							"key": "lon",
+							"value": "151.2093"
+						}
+					]
+				},
+				"description": "The API returns a list of upcoming ISS passes for a particular location formatted as JSON"
+			},
+			"response": [
+				{
+					"name": "ISS Pass Times",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.open-notify.org/iss-pass.json?lat=33.8688&lon=151.2093",
+							"protocol": "http",
+							"host": [
+								"api",
+								"open-notify",
+								"org"
+							],
+							"path": [
+								"iss-pass.json"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "33.8688"
+								},
+								{
+									"key": "lon",
+									"value": "151.2093"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.10.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 05 Aug 2019 12:49:53 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "524"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 vegur, 1.1 inprtsyd03p.corp.emc.com:80 (Cisco-WSA/10.5.2-072)"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success\",\n    \"request\": {\n        \"altitude\": 100,\n        \"datetime\": 1565009393,\n        \"latitude\": 33.8688,\n        \"longitude\": 151.2093,\n        \"passes\": 5\n    },\n    \"response\": [\n        {\n            \"duration\": 425,\n            \"risetime\": 1565053097\n        },\n        {\n            \"duration\": 652,\n            \"risetime\": 1565058751\n        },\n        {\n            \"duration\": 550,\n            \"risetime\": 1565064626\n        },\n        {\n            \"duration\": 346,\n            \"risetime\": 1565070612\n        },\n        {\n            \"duration\": 396,\n            \"risetime\": 1565076494\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Astros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.open-notify.org/astros.json",
+					"protocol": "http",
+					"host": [
+						"api",
+						"open-notify",
+						"org"
+					],
+					"path": [
+						"astros.json"
+					]
+				},
+				"description": "Provides the number and names of austronauts currently in the Internation Space Station"
+			},
+			"response": [
+				{
+					"name": "Astronauts in ISS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.open-notify.org/astros.json",
+							"protocol": "http",
+							"host": [
+								"api",
+								"open-notify",
+								"org"
+							],
+							"path": [
+								"astros.json"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.10.3"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 05 Aug 2019 12:50:37 GMT"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Length",
+							"value": "312"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 inprtsyd03p.corp.emc.com:80 (Cisco-WSA/10.5.2-072)"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success\",\n    \"people\": [\n        {\n            \"name\": \"Alexey Ovchinin\",\n            \"craft\": \"ISS\"\n        },\n        {\n            \"name\": \"Nick Hague\",\n            \"craft\": \"ISS\"\n        },\n        {\n            \"name\": \"Christina Koch\",\n            \"craft\": \"ISS\"\n        },\n        {\n            \"name\": \"Alexander Skvortsov\",\n            \"craft\": \"ISS\"\n        },\n        {\n            \"name\": \"Luca Parmitano\",\n            \"craft\": \"ISS\"\n        },\n        {\n            \"name\": \"Andrew Morgan\",\n            \"craft\": \"ISS\"\n        }\n    ],\n    \"number\": 6\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b8cdf671-c6d4-4211-aa38-2ef3c24b11fb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7763d64a-3132-454a-aa13-bf5ff791674d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
