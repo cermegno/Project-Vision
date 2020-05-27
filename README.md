@@ -3,6 +3,7 @@ Postman collections for DellEMC's block storage products
 ## Details
 This Avengers' project leverages Postman's import collection capabilities to provide sample API calls for the following products:
  - PowerMax
+ - PowerStore
  - XtremIO
  - Unity
  - VxFlex (formerly ScaleIO)
