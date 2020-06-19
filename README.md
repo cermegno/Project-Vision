@@ -17,5 +17,6 @@ The goal of the project is to help customers of these products to automate day 1
 
 Every API call in these collections has been provided with a sample reply so that developers can more easily see what fields are relevant for their purpose and help fast tracking the coding effort
 
-For more details about the Project Vision and its deliverables visit the following blog post
-https://anzpiper.blogspot.com/2019/12/postman-collections-for-dellemc-block.html
+For more details about the Project Vision and its deliverables visit the following blog posts
+http://anzpiper.blogspot.com/2019/12/postman-collections-for-dellemc-block.html
+http://anzpiper.blogspot.com/2020/01/project-vision-in-action.html
