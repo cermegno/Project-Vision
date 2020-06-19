@@ -981,7 +981,157 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "get NAS servers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/rest/nas_server?select=id,name,current_node_id,operational_status",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"nas_server"
+							],
+							"query": [
+								{
+									"key": "select",
+									"value": "id,name,current_node_id,operational_status"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "DELL-EMC-TOKEN",
+							"value": "yPrZ2xf+tYx2WvROPVw6SKmeG+TTrYcQNV02YQOrx4Q="
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-language",
+							"value": "en-US"
+						},
+						{
+							"key": "content-length",
+							"value": "152"
+						},
+						{
+							"key": "set-cookie",
+							"value": "auth_cookie=6c273e45fc4373068f7895ba44f0623e; Path=/; Secure; HTTPOnly"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"5eec74c0-dbcf-e924-4ba7-de887ad30fc1\",\n        \"name\": \"alb-test\",\n        \"current_node_id\": \"PowerStore-3000T-appliance-1-node-A\",\n        \"operational_status\": \"Started\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "create file system",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "DELL-EMC-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"albfs01\",\n\t\"size_total\":3221225472,\n\t\"nas_server_id\": \"5eec74c0-dbcf-e924-4ba7-de887ad30fc1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{ip}}/api/rest/file_system",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"file_system"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create file system",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "DELL-EMC-TOKEN",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"albfs01\",\n\t\"size_total\":3221225472,\n\t\"nas_server_id\": \"5eec74c0-dbcf-e924-4ba7-de887ad30fc1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ip}}/api/rest/file_system",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"file_system"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "DELL-EMC-TOKEN",
+							"value": "yPrZ2xf+tYx2WvROPVw6SKmeG+TTrYcQNV02YQOrx4Q="
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "content-language",
+							"value": "en-US"
+						},
+						{
+							"key": "set-cookie",
+							"value": "auth_cookie=6c273e45fc4373068f7895ba44f0623e; Path=/; Secure; HTTPOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"5eec75a2-3783-eea1-1bf8-3a1327500c32\"\n}"
+				}
+			]
 		},
 		{
 			"name": "get file systems",
@@ -1007,16 +1157,75 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "get file systems",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/rest/file_system?select=id,name,nas_server_id,size_total,size_used,nfs_exports,is_quota_enabled",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"file_system"
+							],
+							"query": [
+								{
+									"key": "select",
+									"value": "id,name,nas_server_id,size_total,size_used,nfs_exports,is_quota_enabled"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "DELL-EMC-TOKEN",
+							"value": "yPrZ2xf+tYx2WvROPVw6SKmeG+TTrYcQNV02YQOrx4Q="
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-language",
+							"value": "en-US"
+						},
+						{
+							"key": "content-length",
+							"value": "208"
+						},
+						{
+							"key": "set-cookie",
+							"value": "auth_cookie=6c273e45fc4373068f7895ba44f0623e; Path=/; Secure; HTTPOnly"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"5eec75a2-3783-eea1-1bf8-3a1327500c32\",\n        \"name\": \"albfs01\",\n        \"nas_server_id\": \"5eec74c0-dbcf-e924-4ba7-de887ad30fc1\",\n        \"size_total\": 3221225472,\n        \"size_used\": 1621098496,\n        \"is_quota_enabled\": false,\n        \"nfs_exports\": []\n    }\n]"
+				}
+			]
 		},
 		{
-			"name": "create file system",
+			"name": "create NFS export",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "DELL-EMC-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"albfs01\",\n\t\"size_total\":3221225472,\n\t\"nas_server_id\": \"5ecdbbd2-0185-9eff-7f3b-16c0a600ca42\"\n}",
+					"raw": "{\r\n  \"file_system_id\": \"5eec75a2-3783-eea1-1bf8-3a1327500c32\",\r\n  \"path\": \"/albfs01\",\r\n  \"name\": \"bigdata\",\r\n  \"description\": \"created on the REST API\",\r\n  \"default_access\": \"Read_Write\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -1024,7 +1233,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://{{ip}}/api/rest/file_system",
+					"raw": "https://{{ip}}/api/rest/nfs_export",
 					"protocol": "https",
 					"host": [
 						"{{ip}}"
@@ -1032,11 +1241,73 @@
 					"path": [
 						"api",
 						"rest",
-						"file_system"
+						"nfs_export"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "create NFS export",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "DELL-EMC-TOKEN",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"file_system_id\": \"5eec75a2-3783-eea1-1bf8-3a1327500c32\",\r\n  \"path\": \"/albfs01\",\r\n  \"name\": \"bigdata\",\r\n  \"description\": \"created on the REST API\",\r\n  \"default_access\": \"Read_Write\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ip}}/api/rest/nfs_export",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"nfs_export"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "DELL-EMC-TOKEN",
+							"value": "yPrZ2xf+tYx2WvROPVw6SKmeG+TTrYcQNV02YQOrx4Q="
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "content-language",
+							"value": "en-US"
+						},
+						{
+							"key": "set-cookie",
+							"value": "auth_cookie=6c273e45fc4373068f7895ba44f0623e; Path=/; Secure; HTTPOnly"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"5eec776c-06cb-89bc-6167-3a1327500c32\"\n}"
+				}
+			]
 		},
 		{
 			"name": "get NFS exports",
@@ -1062,24 +1333,74 @@
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "get NFS exports",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{ip}}/api/rest/nfs_export?select=id,name,path,file_system,default_access",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"nfs_export"
+							],
+							"query": [
+								{
+									"key": "select",
+									"value": "id,name,path,file_system,default_access"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "DELL-EMC-TOKEN",
+							"value": "yPrZ2xf+tYx2WvROPVw6SKmeG+TTrYcQNV02YQOrx4Q="
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-language",
+							"value": "en-US"
+						},
+						{
+							"key": "content-length",
+							"value": "172"
+						},
+						{
+							"key": "set-cookie",
+							"value": "auth_cookie=6c273e45fc4373068f7895ba44f0623e; Path=/; Secure; HTTPOnly"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"5eec776c-06cb-89bc-6167-3a1327500c32\",\n        \"name\": \"bigdata\",\n        \"path\": \"/albfs01\",\n        \"default_access\": \"Read_Write\",\n        \"file_system\": {\n            \"id\": \"5eec75a2-3783-eea1-1bf8-3a1327500c32\"\n        }\n    }\n]"
+				}
+			]
 		},
 		{
-			"name": "create NFS export",
+			"name": "delete NFS export",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"file_system_id\": \"5ecdbe8b-e8bd-8069-5f35-c675cf2e8bc9\",\r\n  \"path\": \"data\",\r\n  \"name\": \"bigdata\",\r\n  \"description\": \"created on the REST API\",\r\n  \"default_access\": \"Read_Write\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "DELL-EMC-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
 					}
-				},
+				],
 				"url": {
-					"raw": "https://{{ip}}/api/rest/nfs_export",
+					"raw": "https://{{ip}}/api/rest/nfs_export/5eec776c-06cb-89bc-6167-3a1327500c32",
 					"protocol": "https",
 					"host": [
 						"{{ip}}"
@@ -1087,19 +1408,76 @@
 					"path": [
 						"api",
 						"rest",
-						"nfs_export"
+						"nfs_export",
+						"5eec776c-06cb-89bc-6167-3a1327500c32"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "delete NFS export",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "DELL-EMC-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{ip}}/api/rest/nfs_export/5eec776c-06cb-89bc-6167-3a1327500c32",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"nfs_export",
+								"5eec776c-06cb-89bc-6167-3a1327500c32"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "DELL-EMC-TOKEN",
+							"value": "yPrZ2xf+tYx2WvROPVw6SKmeG+TTrYcQNV02YQOrx4Q="
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-language",
+							"value": "en-US"
+						},
+						{
+							"key": "set-cookie",
+							"value": "auth_cookie=6c273e45fc4373068f7895ba44f0623e; Path=/; Secure; HTTPOnly"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "delete file systems",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "DELL-EMC-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "https://{{ip}}/api/rest/file_system/5ecdbde7-d500-1c4f-8bd1-c675cf2e8bc9",
+					"raw": "https://{{ip}}/api/rest/file_system/5eec75a2-3783-eea1-1bf8-3a1327500c32",
 					"protocol": "https",
 					"host": [
 						"{{ip}}"
@@ -1108,11 +1486,138 @@
 						"api",
 						"rest",
 						"file_system",
-						"5ecdbde7-d500-1c4f-8bd1-c675cf2e8bc9"
+						"5eec75a2-3783-eea1-1bf8-3a1327500c32"
 					]
 				}
 			},
-			"response": []
+			"response": [
+				{
+					"name": "delete file system",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "DELL-EMC-TOKEN",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://{{ip}}/api/rest/file_system/5eec75a2-3783-eea1-1bf8-3a1327500c32",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"file_system",
+								"5eec75a2-3783-eea1-1bf8-3a1327500c32"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "DELL-EMC-TOKEN",
+							"value": "yPrZ2xf+tYx2WvROPVw6SKmeG+TTrYcQNV02YQOrx4Q="
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-language",
+							"value": "en-US"
+						},
+						{
+							"key": "set-cookie",
+							"value": "auth_cookie=6c273e45fc4373068f7895ba44f0623e; Path=/; Secure; HTTPOnly"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "delete NAS server",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "DELL-EMC-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}/api/rest/nas_server/5eec74c0-dbcf-e924-4ba7-de887ad30fc1",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"nas_server",
+						"5eec74c0-dbcf-e924-4ba7-de887ad30fc1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete NAS server",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "DELL-EMC-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{ip}}/api/rest/nas_server/5eec74c0-dbcf-e924-4ba7-de887ad30fc1",
+							"protocol": "https",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"rest",
+								"nas_server",
+								"5eec74c0-dbcf-e924-4ba7-de887ad30fc1"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "DELL-EMC-TOKEN",
+							"value": "yPrZ2xf+tYx2WvROPVw6SKmeG+TTrYcQNV02YQOrx4Q="
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-language",
+							"value": "en-US"
+						},
+						{
+							"key": "set-cookie",
+							"value": "auth_cookie=6c273e45fc4373068f7895ba44f0623e; Path=/; Secure; HTTPOnly"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
 		}
 	],
 	"auth": {
