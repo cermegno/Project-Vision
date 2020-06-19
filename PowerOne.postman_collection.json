@@ -1,0 +1,1426 @@
+{
+	"info": {
+		"_postman_id": "4f8a70c3-57c3-42aa-9663-b51d3275f581",
+		"name": "PowerOne",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe9eccfe-ab1f-4a62-92ef-83ad89823109",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.environment.set(\"token\", data.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"grantType\" : \"password\",\n\t\"username\" : \"initialdeploy\",\n\t\"password\" : \"initialdeploy\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"grantType\" : \"password\",\n\t\"username\" : \"initialdeploy\",\n\t\"password\" : \"initialdeploy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "352"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"160-RaSGEj4p58H1yUKjwihUWaMaxmI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 May 2020 01:31:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcmVmZXJyZWRfdXNlcm5hbWUiOiJpbml0aWFsZGVwbG95IiwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOltudWxsXX19LCJpYXQiOjE1ODg2NDIzMDMsImV4cCI6MTU4ODY0NTkwM30.9YAEvrSXNWuYnfU_j06QEOsA_UqXf-_auaUx6cCV2vw\",\n    \"expiresIn\": 60,\n    \"refreshToken\": \"placeholder\",\n    \"refreshTokenExpiresIn\": 1800,\n    \"tokenType\": \"bearer\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get cabinets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:3000/assets/cabinets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"assets",
+						"cabinets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get cabinets",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/assets/cabinets",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"assets",
+								"cabinets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "429"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1ad-sjgahTz7CyOpwef0br5nPtHAZK4\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Apr 2020 01:36:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pages\": \"1\",\n    \"count\": \"2\",\n    \"assets\": [\n        {\n            \"id\": \"14981-01\",\n            \"model\": \"Gateway\",\n            \"serialId\": \"14981-01\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"\",\n            \"managementIP\": \"172.22.101.108\"\n        },\n        {\n            \"id\": \"14981-02\",\n            \"model\": \"Gateway\",\n            \"serialId\": \"14981-02\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"\",\n            \"managementIP\": \"172.22.101.109\"\n        },\n        {\n            \"id\": \"14981-03\",\n            \"model\": \"Gateway\",\n            \"serialId\": \"14981-03\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"\",\n            \"managementIP\": \"172.22.101.110\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get chassis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/assets/chassis",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"assets",
+						"chassis"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get chassis",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/assets/chassis",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"assets",
+								"chassis"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2321"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"911-Yke1YBWsjyQ/iGZ7m8nIxAP+ZmQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Apr 2020 01:39:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pages\": \"1\",\n    \"count\": \"2\",\n    \"assets\": [\n        {\n            \"id\": \"149CXM2\",\n            \"model\": \"PowerEdge MX7000\",\n            \"serialId\": \"149CXM2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"D0:94:66:27:7E:28\",\n            \"managementIP\": \"172.22.102.8\",\n            \"servers\": [\n                {\n                    \"svcTag\": \"1488XM2\",\n                    \"slot\": \"1\"\n                },\n                {\n                    \"svcTag\": \"147BXM2\",\n                    \"slot\": \"2\"\n                },\n                {\n                    \"svcTag\": \"147CXM2\",\n                    \"slot\": \"4\"\n                },\n                {\n                    \"svcTag\": \"1479XM2\",\n                    \"slot\": \"3\"\n                },\n                {\n                    \"svcTag\": \"1499XM2\",\n                    \"slot\": \"5\"\n                },\n                {\n                    \"svcTag\": \"1477XM2\",\n                    \"slot\": \"6\"\n                },\n                {\n                    \"svcTag\": \"1479XM2\",\n                    \"slot\": \"7\"\n                },\n                {\n                    \"svcTag\": \"1476XM2\",\n                    \"slot\": \"8\"\n                }\n            ],\n            \"fabricSwitches\": [\n                {\n                    \"svcTag\": \"JKPWMR2\",\n                    \"slot\": \"IOM-A2\"\n                }\n            ],\n            \"fabricExtenders\": [\n                {\n                    \"svcTag\": \"9C0Z0S2\",\n                    \"slot\": \"IOM-A1\"\n                }\n            ],\n            \"firmware\": [\n                {\n                    \"name\": \"Catalog\",\n                    \"version\": \"3.0.0\"\n                },\n                {\n                    \"name\": \"MSM\",\n                    \"version\": \"1.10.00\"\n                }\n            ]\n        },\n        {\n            \"id\": \"7FGYLN2\",\n            \"model\": \"PowerEdge MX7000\",\n            \"serialId\": \"7FGYLN2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"D0:94:66:27:82:1A\",\n            \"managementIP\": \"172.22.102.9\",\n            \"servers\": [\n                {\n                    \"svcTag\": \"8FDWLN1\",\n                    \"slot\": \"1\"\n                },\n                {\n                    \"svcTag\": \"8FDWLN2\",\n                    \"slot\": \"2\"\n                },\n                {\n                    \"svcTag\": \"8FDWLN3\",\n                    \"slot\": \"3\"\n                },\n                {\n                    \"svcTag\": \"8FDWLN4\",\n                    \"slot\": \"4\"\n                },\n                {\n                    \"svcTag\": \"8FDWLN5\",\n                    \"slot\": \"5\"\n                },\n                {\n                    \"svcTag\": \"8FDWLN6\",\n                    \"slot\": \"6\"\n                },\n                {\n                    \"svcTag\": \"8FDWLN7\",\n                    \"slot\": \"7\"\n                },\n                {\n                    \"svcTag\": \"8FDWLN8\",\n                    \"slot\": \"8\"\n                }\n            ],\n            \"fabricSwitches\": [\n                {\n                    \"svcTag\": \"7H1NPY2\",\n                    \"slot\": \"IOM-A1\"\n                }\n            ],\n            \"fabricExtenders\": [\n                {\n                    \"svcTag\": \"41D0MN2\",\n                    \"slot\": \"IOM-A2\"\n                }\n            ],\n            \"firmware\": [\n                {\n                    \"name\": \"Catalog\",\n                    \"version\": \"3.0.0\"\n                },\n                {\n                    \"name\": \"MSM\",\n                    \"version\": \"1.10.00\"\n                }\n            ]\n        },\n        {\n            \"id\": \"7GGYLN2\",\n            \"model\": \"PowerEdge MX7000\",\n            \"serialId\": \"7GGYLN2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"D0:94:66:27:82:1A\",\n            \"managementIP\": \"172.22.102.9\",\n            \"servers\": [\n                {\n                    \"svcTag\": \"7FDN9N2\",\n                    \"slot\": \"1\"\n                },\n                {\n                    \"svcTag\": \"7FDWLN2\",\n                    \"slot\": \"3\"\n                },\n                {\n                    \"svcTag\": \"7FDYLN2\",\n                    \"slot\": \"5\"\n                },\n                {\n                    \"svcTag\": \"7FDM9N2\",\n                    \"slot\": \"7\"\n                }\n            ],\n            \"fabricSwitches\": [\n                {\n                    \"svcTag\": \"7H1NPY2\",\n                    \"slot\": \"IOM-A2\"\n                }\n            ],\n            \"fabricExtenders\": [\n                {\n                    \"svcTag\": \"51D0MN2\",\n                    \"slot\": \"IOM-A1\"\n                }\n            ],\n            \"firmware\": [\n                {\n                    \"name\": \"Catalog\",\n                    \"version\": \"3.0.0\"\n                },\n                {\n                    \"name\": \"MSM\",\n                    \"version\": \"1.10.00\"\n                }\n            ]\n        },\n        {\n            \"id\": \"7HGYLN2\",\n            \"model\": \"PowerEdge MX7000\",\n            \"serialId\": \"7HGYLN2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"D0:94:66:28:92:1A\",\n            \"managementIP\": \"172.22.102.10\",\n            \"servers\": [\n                {\n                    \"svcTag\": \"9FDWLN1\",\n                    \"slot\": \"1\"\n                },\n                {\n                    \"svcTag\": \"9FDWLN2\",\n                    \"slot\": \"2\"\n                },\n                {\n                    \"svcTag\": \"9FDWLN3\",\n                    \"slot\": \"3\"\n                },\n                {\n                    \"svcTag\": \"9FDWLN4\",\n                    \"slot\": \"4\"\n                },\n                {\n                    \"svcTag\": \"7FDP9N2\",\n                    \"slot\": \"5\"\n                },\n                {\n                    \"svcTag\": \"7FDQ9N2\",\n                    \"slot\": \"7\"\n                }\n            ],\n            \"fabricSwitches\": [\n                {\n                    \"svcTag\": \"JKPWMR2\",\n                    \"slot\": \"IOM-A1\"\n                }\n            ],\n            \"fabricExtenders\": [\n                {\n                    \"svcTag\": \"61D0MN2\",\n                    \"slot\": \"IOM-A2\"\n                }\n            ],\n            \"firmware\": [\n                {\n                    \"name\": \"Catalog\",\n                    \"version\": \"3.0.0\"\n                },\n                {\n                    \"name\": \"MSM\",\n                    \"version\": \"1.10.00\"\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get storage arrays",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/assets/storage-arrays",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"assets",
+						"storage-arrays"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get storage arrays",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/assets/storage-arrays",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"assets",
+								"storage-arrays"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "642"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"282-1YL/LD0o6AbTOAGyRhv4CVK8OgY\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 05:29:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pages\": \"1\",\n    \"count\": \"1\",\n    \"assets\": [\n        {\n            \"id\": \"000197900283\",\n            \"model\": \"PowerMax_2000\",\n            \"serialId\": \"000197900283\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"\",\n            \"name\": \"POWERMAX-01\",\n            \"type\": 0,\n            \"usableCapacity\": \"2048.74\",\n            \"allocatedCapacity\": \"7.37\",\n            \"dataEncryption\": \"Disabled\",\n            \"deviceCount\": \"332\",\n            \"diskCount\": \"8\",\n            \"powermax\": {\n                \"gatewayAddress\": \"192.168.108.1\",\n                \"subnetAddressIPs\": {\n                    \"eMgmtIPs\": {\n                        \"eMgmtIP1\": \"192.168.108.2\",\n                        \"eMgmtIP2\": \"192.168.108.3\"\n                    },\n                    \"nasIPs\": {\n                        \"NASIP1\": \"192.168.108.4\",\n                        \"NASIP2\": \"192.168.108.5\"\n                    },\n                    \"EngineerConsolesIPs\": {\n                        \"consoleIP1\": \"192.168.108.6\",\n                        \"consoleIP2\": \"192.168.108.7\"\n                    }\n                },\n                \"symmetrixId\": \"000197900283\",\n                \"ucode\": \"5978.221.221\",\n                \"srpId\": \"SRP_1\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get servers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/assets/servers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"assets",
+						"servers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get servers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/assets/servers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"assets",
+								"servers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26003"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6593-KDt9hBPAo9eMPwChIr/IBqRN+28\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Apr 2020 01:43:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pages\": \"1\",\n    \"count\": \"16\",\n    \"assets\": [\n        {\n            \"id\": \"1476XM2\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"1476XM2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:39:fa:91\",\n            \"managementIP\": \"172.22.102.220\",\n            \"managementHostName\": \"idrac-1476XM2.powerone.test.customer\",\n            \"chassisId\": \"149CXM2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"1477XM2\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"1477XM2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:29:fa:9e\",\n            \"managementIP\": \"172.22.102.222\",\n            \"managementHostName\": \"idrac-1477XM2.powerone.test.customer\",\n            \"chassisId\": \"149CXM2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"1479XM2\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"1479XM2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:95:66:39:fa:9e\",\n            \"managementIP\": \"172.22.102.223\",\n            \"managementHostName\": \"idrac-1479XM2.powerone.test.customer\",\n            \"chassisId\": \"149CXM2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"147BXM2\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"147BXM2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:29:fe:7e\",\n            \"managementIP\": \"172.22.102.77\",\n            \"managementHostName\": \"idrac-147BXM2.powerone.test.customer\",\n            \"chassisId\": \"149CXM2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"147CXM2\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"147CXM2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:29:f9:a3\",\n            \"managementIP\": \"172.22.102.209\",\n            \"managementHostName\": \"idrac-147CXM2.powerone.test.customer\",\n            \"chassisId\": \"149CXM2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"1488XM2\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"1488XM2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:29:fb:24\",\n            \"managementIP\": \"172.22.103.89\",\n            \"managementHostName\": \"idrac-1488XM2.powerone.test.customer\",\n            \"chassisId\": \"149CXM2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"1499XM2\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"1499XM2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:29:fd:ac\",\n            \"managementIP\": \"172.22.102.142\",\n            \"managementHostName\": \"idrac-1499XM2.powerone.test.customer\",\n            \"chassisId\": \"149CXM2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"7FDM9N2\",\n            \"model\": \"PowerEdge MX840c\",\n            \"serialId\": \"7FDM9N2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:2a:0d:b9\",\n            \"managementIP\": \"172.22.102.158\",\n            \"managementHostName\": \"idrac-7FDM9N2.powerone.test.customer\",\n            \"chassisId\": \"7GGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 20,\n                \"enabledCores\": 20,\n                \"model\": \"Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2400,\n                \"maxSpeedInMHz\": 2400\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 512,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX840cBIOS\",\n                    \"version\": \"2.4.5\"\n                },\n                {\n                    \"name\": \"MX840cCPLD\",\n                    \"version\": \"1.1.2\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"7FDYLN2\",\n            \"model\": \"PowerEdge MX840c\",\n            \"serialId\": \"7FDYLN2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:a4:67:2a:0d:b3\",\n            \"managementIP\": \"172.22.102.153\",\n            \"managementHostName\": \"idrac-7FDYLN2.powerone.test.customer\",\n            \"chassisId\": \"7GGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 20,\n                \"enabledCores\": 20,\n                \"model\": \"Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2400,\n                \"maxSpeedInMHz\": 2400\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 512,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX840cBIOS\",\n                    \"version\": \"2.4.5\"\n                },\n                {\n                    \"name\": \"MX840cCPLD\",\n                    \"version\": \"1.1.2\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"7FDN9N2\",\n            \"model\": \"PowerEdge MX840c\",\n            \"serialId\": \"7FDN9N2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:29:f3:55\",\n            \"managementIP\": \"172.22.102.245\",\n            \"managementHostName\": \"idrac-7FDN9N2.powerone.test.customer\",\n            \"chassisId\": \"7GGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 20,\n                \"enabledCores\": 20,\n                \"model\": \"Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2400,\n                \"maxSpeedInMHz\": 2400\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 512,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX840cBIOS\",\n                    \"version\": \"2.4.5\"\n                },\n                {\n                    \"name\": \"MX840cCPLD\",\n                    \"version\": \"1.1.2\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"7FDP9N2\",\n            \"model\": \"PowerEdge MX840c\",\n            \"serialId\": \"7FDP9N2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:29:f5:83\",\n            \"managementIP\": \"172.22.102.253\",\n            \"managementHostName\": \"idrac-7FDP9N2.powerone.test.customer\",\n            \"chassisId\": \"7HGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 20,\n                \"enabledCores\": 20,\n                \"model\": \"Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2400,\n                \"maxSpeedInMHz\": 2400\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 512,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX840cBIOS\",\n                    \"version\": \"2.4.5\"\n                },\n                {\n                    \"name\": \"MX840cCPLD\",\n                    \"version\": \"1.1.2\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"7FDQ9N2\",\n            \"model\": \"PowerEdge MX840c\",\n            \"serialId\": \"7FDQ9N2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:76:29:f5:83\",\n            \"managementIP\": \"172.22.102.254\",\n            \"managementHostName\": \"idrac-7FDQ9N2.powerone.test.customer\",\n            \"chassisId\": \"7HGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 20,\n                \"enabledCores\": 20,\n                \"model\": \"Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2400,\n                \"maxSpeedInMHz\": 2400\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 512,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX840cBIOS\",\n                    \"version\": \"2.4.5\"\n                },\n                {\n                    \"name\": \"MX840cCPLD\",\n                    \"version\": \"1.1.2\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"7FDWLN2\",\n            \"model\": \"PowerEdge MX840c\",\n            \"serialId\": \"7FDWLN2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:94:66:2a:0c:bd\",\n            \"managementIP\": \"172.22.102.181\",\n            \"managementHostName\": \"idrac-7FDWLN2.powerone.test.customer\",\n            \"chassisId\": \"7GGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 20,\n                \"enabledCores\": 20,\n                \"model\": \"Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2400,\n                \"maxSpeedInMHz\": 2400\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 512,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX840cBIOS\",\n                    \"version\": \"2.4.5\"\n                },\n                {\n                    \"name\": \"MX840cCPLD\",\n                    \"version\": \"1.1.2\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"8FDWLN1\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"8FDWLN1\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:84:55:39:fa:91\",\n            \"managementIP\": \"172.44.102.218\",\n            \"managementHostName\": \"idrac-8FDWLN1.powerone.test.customer\",\n            \"chassisId\": \"7FGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"8FDWLN2\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"8FDWLN2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:84:55:32:fa:91\",\n            \"managementIP\": \"172.42.102.218\",\n            \"managementHostName\": \"idrac-8FDWLN2.powerone.test.customer\",\n            \"chassisId\": \"7FGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"8FDWLN3\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"8FDWLN3\",\n            \"quarantine\": 5,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:84:55:39:f3:91\",\n            \"managementIP\": \"172.43.102.218\",\n            \"managementHostName\": \"idrac-8FDWLN3.powerone.test.customer\",\n            \"chassisId\": \"7FGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 8,\n                \"enabledCores\": 8,\n                \"model\": \"Intel(R) Xeon(R) Silver 4108 CPU @ 1.80GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 1800,\n                \"maxSpeedInMHz\": 1800\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 64,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"8FDWLN4\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"8FDWLN4\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:84:55:39:fa:91\",\n            \"managementIP\": \"172.44.142.218\",\n            \"managementHostName\": \"idrac-8FDWLN4.powerone.test.customer\",\n            \"chassisId\": \"7FGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"8FDWLN5\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"8FDWLN5\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d5:84:55:39:fa:91\",\n            \"managementIP\": \"172.45.105.218\",\n            \"managementHostName\": \"idrac-8FDWLN5.powerone.test.customer\",\n            \"chassisId\": \"7FGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 8,\n                \"enabledCores\": 8,\n                \"model\": \"Intel(R) Xeon(R) Silver 4108 CPU @ 1.80GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 1800,\n                \"maxSpeedInMHz\": 1800\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 64,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"8FDWLN6\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"8FDWLN6\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:86:65:39:fa:91\",\n            \"managementIP\": \"172.44.102.218\",\n            \"managementHostName\": \"idrac-8FDWLN6.powerone.test.customer\",\n            \"chassisId\": \"7FGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 8,\n                \"enabledCores\": 8,\n                \"model\": \"Intel(R) Xeon(R) Silver 4108 CPU @ 1.80GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 1800,\n                \"maxSpeedInMHz\": 1800\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 64,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"8FDWLN7\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"8FDWLN7\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:76:55:69:fa:91\",\n            \"managementIP\": \"172.44.102.217\",\n            \"managementHostName\": \"idrac-8FDWLN7.powerone.test.customer\",\n            \"chassisId\": \"7FGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 8,\n                \"enabledCores\": 8,\n                \"model\": \"Intel(R) Xeon(R) Silver 4108 CPU @ 1.80GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 1800,\n                \"maxSpeedInMHz\": 1800\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 64,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"8FDWLN8\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"8FDWLN8\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:87:55:39:fa:91\",\n            \"managementIP\": \"172.47.108.218\",\n            \"managementHostName\": \"idrac-8FDWLN8.powerone.test.customer\",\n            \"chassisId\": \"7FGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"9FDWLN1\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"9FDWLN1\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:87:55:38:aa:91\",\n            \"managementIP\": \"172.47.108.241\",\n            \"managementHostName\": \"idrac-9FDWLN1.powerone.test.customer\",\n            \"chassisId\": \"7HGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [\n                {\n                    \"busType\": \"SATA\",\n                    \"formfactor\": \"2500\",\n                    \"freeSpace\": \"0 bytes\",\n                    \"mediaType\": \"Solid State Drive\",\n                    \"partNumber\": \"PHOPGNY6TB30084G00BXA02\",\n                    \"predictiveFailureState\": \"No\",\n                    \"raidStatus\": \"Non-RAID\",\n                    \"remaningReadWriteEndurance\": \"255\",\n                    \"revision\": \"DAC9\",\n                    \"serialNumber\": \"48GS13CXGB41\",\n                    \"size\": \"256.50GB\",\n                    \"slotNumber\": 2,\n                    \"status\": 2000,\n                    \"usedSpace\": \"0 bytes\",\n                    \"vendorName\": \"TOSHIBA\",\n                    \"enclosureId\": \"Disk.Direct.1-1:AHCI.Integrated.2-1\"\n                },\n                {\n                    \"busType\": \"SATA\",\n                    \"formfactor\": \"2500\",\n                    \"freeSpace\": \"0 bytes\",\n                    \"mediaType\": \"Solid State Drive\",\n                    \"partNumber\": \"PHOPGNY6TB30084G00BXA01\",\n                    \"predictiveFailureState\": \"No\",\n                    \"raidStatus\": \"Non-RAID\",\n                    \"remaningReadWriteEndurance\": \"255\",\n                    \"revision\": \"DAC9\",\n                    \"serialNumber\": \"48GS10BXTB41\",\n                    \"size\": \"256.44GB\",\n                    \"slotNumber\": 2,\n                    \"status\": 2000,\n                    \"usedSpace\": \"0 bytes\",\n                    \"vendorName\": \"TOSHIBA\",\n                    \"enclosureId\": \"Disk.Direct.1-1:AHCI.Integrated.1-1\"\n                },\n                {\n                    \"busType\": \"SATA\",\n                    \"formfactor\": \"2500\",\n                    \"freeSpace\": \"0 bytes\",\n                    \"mediaType\": \"Solid State Drive\",\n                    \"partNumber\": \"PHOPGNY6TB30084G00BXA02\",\n                    \"predictiveFailureState\": \"No\",\n                    \"raidStatus\": \"Non-RAID\",\n                    \"remaningReadWriteEndurance\": \"255\",\n                    \"revision\": \"DAC9\",\n                    \"serialNumber\": \"58GS11CXKB41\",\n                    \"size\": \"256.50GB\",\n                    \"slotNumber\": 1,\n                    \"status\": 2000,\n                    \"usedSpace\": \"0 bytes\",\n                    \"vendorName\": \"TOSHIBA\",\n                    \"enclosureId\": \"Disk.Direct.1-1:AHCI.Integrated.2-1\"\n                },\n                {\n                    \"busType\": \"SATA\",\n                    \"formfactor\": \"2500\",\n                    \"freeSpace\": \"0 bytes\",\n                    \"mediaType\": \"Solid State Drive\",\n                    \"partNumber\": \"PHOPGNY6TB30084G00BXA01\",\n                    \"predictiveFailureState\": \"No\",\n                    \"raidStatus\": \"Non-RAID\",\n                    \"remaningReadWriteEndurance\": \"255\",\n                    \"revision\": \"DAC9\",\n                    \"serialNumber\": \"48GS10BXTB41\",\n                    \"size\": \"1.44TB\",\n                    \"slotNumber\": 1,\n                    \"status\": 2000,\n                    \"usedSpace\": \"0 bytes\",\n                    \"vendorName\": \"TOSHIBA\",\n                    \"enclosureId\": \"Disk.Direct.1-1:AHCI.Integrated.1-1\"\n                }\n            ],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"9FDWLN2\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"9FDWLN2\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:87:55:38:aa:92\",\n            \"managementIP\": \"172.47.108.242\",\n            \"managementHostName\": \"idrac-9FDWLN2.powerone.test.customer\",\n            \"chassisId\": \"7HGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [\n                {\n                    \"busType\": \"SATA\",\n                    \"formfactor\": \"2500\",\n                    \"freeSpace\": \"0 bytes\",\n                    \"mediaType\": \"Solid State Drive\",\n                    \"partNumber\": \"PHOPGNY6TB30084G00BXA02\",\n                    \"predictiveFailureState\": \"No\",\n                    \"raidStatus\": \"Non-RAID\",\n                    \"remaningReadWriteEndurance\": \"255\",\n                    \"revision\": \"DAC9\",\n                    \"serialNumber\": \"48GS13CXGB42\",\n                    \"size\": \"256.50GB\",\n                    \"slotNumber\": 2,\n                    \"status\": 2000,\n                    \"usedSpace\": \"0 bytes\",\n                    \"vendorName\": \"TOSHIBA\",\n                    \"enclosureId\": \"Disk.Direct.1-1:AHCI.Integrated.2-1\"\n                },\n                {\n                    \"busType\": \"SATA\",\n                    \"formfactor\": \"2500\",\n                    \"freeSpace\": \"0 bytes\",\n                    \"mediaType\": \"Solid State Drive\",\n                    \"partNumber\": \"PHOPGNY6TB30084G00BXA01\",\n                    \"predictiveFailureState\": \"No\",\n                    \"raidStatus\": \"Non-RAID\",\n                    \"remaningReadWriteEndurance\": \"255\",\n                    \"revision\": \"DAC9\",\n                    \"serialNumber\": \"48GS10BXTB42\",\n                    \"size\": \"256.44GB\",\n                    \"slotNumber\": 2,\n                    \"status\": 2000,\n                    \"usedSpace\": \"0 bytes\",\n                    \"vendorName\": \"TOSHIBA\",\n                    \"enclosureId\": \"Disk.Direct.1-1:AHCI.Integrated.1-1\"\n                },\n                {\n                    \"busType\": \"SATA\",\n                    \"formfactor\": \"2500\",\n                    \"freeSpace\": \"0 bytes\",\n                    \"mediaType\": \"Solid State Drive\",\n                    \"partNumber\": \"PHOPGNY6TB30084G00BXA02\",\n                    \"predictiveFailureState\": \"No\",\n                    \"raidStatus\": \"Non-RAID\",\n                    \"remaningReadWriteEndurance\": \"255\",\n                    \"revision\": \"DAC9\",\n                    \"serialNumber\": \"58GS11CXKB42\",\n                    \"size\": \"256.50GB\",\n                    \"slotNumber\": 1,\n                    \"status\": 2000,\n                    \"usedSpace\": \"0 bytes\",\n                    \"vendorName\": \"TOSHIBA\",\n                    \"enclosureId\": \"Disk.Direct.1-1:AHCI.Integrated.2-1\"\n                },\n                {\n                    \"busType\": \"SATA\",\n                    \"formfactor\": \"2500\",\n                    \"freeSpace\": \"0 bytes\",\n                    \"mediaType\": \"Solid State Drive\",\n                    \"partNumber\": \"PHOPGNY6TB30084G00BXA01\",\n                    \"predictiveFailureState\": \"No\",\n                    \"raidStatus\": \"Non-RAID\",\n                    \"remaningReadWriteEndurance\": \"255\",\n                    \"revision\": \"DAC9\",\n                    \"serialNumber\": \"48GS10BXTB42\",\n                    \"size\": \"1.44TB\",\n                    \"slotNumber\": 1,\n                    \"status\": 2000,\n                    \"usedSpace\": \"0 bytes\",\n                    \"vendorName\": \"TOSHIBA\",\n                    \"enclosureId\": \"Disk.Direct.1-1:AHCI.Integrated.1-1\"\n                }\n            ],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"9FDWLN3\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"9FDWLN3\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:87:55:38:aa:93\",\n            \"managementIP\": \"172.47.108.243\",\n            \"managementHostName\": \"idrac-9FDWLN3.powerone.test.customer\",\n            \"chassisId\": \"7HGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 14,\n                \"enabledCores\": 14,\n                \"model\": \"Intel(R) Xeon(R) Gold 5117 CPU @ 2.00GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 2000,\n                \"maxSpeedInMHz\": 2000\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 128,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        },\n        {\n            \"id\": \"9FDWLN4\",\n            \"model\": \"PowerEdge MX740c\",\n            \"serialId\": \"9FDWLN4\",\n            \"quarantine\": 0,\n            \"lock\": \"\",\n            \"macAddress\": \"d0:87:55:38:aa:94\",\n            \"managementIP\": \"172.47.108.244\",\n            \"managementHostName\": \"idrac-9FDWLN4.powerone.test.customer\",\n            \"chassisId\": \"7HGYLN2\",\n            \"processor\": {\n                \"populatedCpuSockets\": 2,\n                \"coresPerSocket\": 8,\n                \"enabledCores\": 8,\n                \"model\": \"Intel(R) Xeon(R) Silver 4108 CPU @ 1.80GHz\",\n                \"type\": \"Intel(R) Xeon(TM)\",\n                \"currentSpeedInMHz\": 1800,\n                \"maxSpeedInMHz\": 1800\n            },\n            \"memory\": {\n                \"totalMemoryInGB\": 64,\n                \"type\": \"DDR4 DRAM\"\n            },\n            \"firmware\": [\n                {\n                    \"name\": \"iDRAC\",\n                    \"version\": \"3.36.36.36\"\n                },\n                {\n                    \"name\": \"OSDeployment\",\n                    \"version\": \"19.04.05\"\n                },\n                {\n                    \"name\": \"QLogic41xxx\",\n                    \"version\": \"15.00.14\"\n                },\n                {\n                    \"name\": \"MX740cBIOS\",\n                    \"version\": \"2.3.8\"\n                },\n                {\n                    \"name\": \"MX740cCPLD\",\n                    \"version\": \"1.0.5\"\n                },\n                {\n                    \"name\": \"OSCollector\",\n                    \"version\": \"4.0\"\n                },\n                {\n                    \"name\": \"UEFI\",\n                    \"version\": \"4301A34\"\n                },\n                {\n                    \"name\": \"BOSSS1\",\n                    \"version\": \"2.6.13.3022\"\n                },\n                {\n                    \"name\": \"Backplane\",\n                    \"version\": \"4.32\"\n                }\n            ],\n            \"storageDevices\": [],\n            \"manualModeLabel\": \"\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Retrieve Clusters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/logical/clusters",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"logical",
+						"clusters"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Retrieve Clusters",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/logical/clusters",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"logical",
+								"clusters"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2002"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7d2-m8oizTrhgkMfa/gOw7CYSpoyeUk\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 04:50:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pages\": 1,\n    \"count\": 4,\n    \"clusters\": [\n        {\n            \"id\": \"CLUSTER_99\",\n            \"name\": \"pwr1-m001-mgmt01\",\n            \"clusterProperties\": {\n                \"platform\": {\n                    \"platformType\": \"vSphere+NSX\",\n                    \"version\": \"vSphere 6.7 Update 2\",\n                    \"versionId\": 2\n                },\n                \"server\": {\n                    \"totalCpuCores\": 112,\n                    \"totalRAM\": 512\n                },\n                \"storage\": {\n                    \"dataReduction\": true,\n                    \"encryption\": true,\n                    \"totalClusterStorageTB\": 4\n                }\n            },\n            \"serverCount\": 4,\n            \"serverInfo\": {\n                \"model\": \"PowerEdge MX740c\",\n                \"cpuSpeed\": 2,\n                \"cpuCoreCount\": 14,\n                \"cpuSocketCount\": 2,\n                \"totalMemory\": 128\n            },\n            \"storageArrayInfo\": {\n                \"id\": \"000197900283\",\n                \"name\": \"POWERMAX-01\",\n                \"type\": 0,\n                \"model\": \"PowerMax_2000\"\n            }\n        },\n        {\n            \"id\": \"CLUSTER_1\",\n            \"name\": \"Production\",\n            \"clusterProperties\": {\n                \"platform\": {\n                    \"platformType\": \"vSphere\",\n                    \"version\": \"vSphere 6.7 Update 1\",\n                    \"versionId\": 1\n                },\n                \"server\": {\n                    \"totalCpuCores\": 84,\n                    \"totalRAM\": 384\n                },\n                \"storage\": {\n                    \"dataReduction\": false,\n                    \"encryption\": false,\n                    \"totalClusterStorageTB\": 4\n                }\n            },\n            \"serverCount\": 3,\n            \"serverInfo\": {\n                \"model\": \"PowerEdge MX740c\",\n                \"cpuSpeed\": 2,\n                \"cpuCoreCount\": 14,\n                \"cpuSocketCount\": 2,\n                \"totalMemory\": 128\n            },\n            \"storageArrayInfo\": {\n                \"id\": \"000197900283\",\n                \"name\": \"POWERMAX-01\",\n                \"type\": 0,\n                \"model\": \"PowerMax_2000\"\n            }\n        },\n        {\n            \"id\": \"CLUSTER_2\",\n            \"name\": \"DevOps\",\n            \"clusterProperties\": {\n                \"platform\": {\n                    \"platformType\": \"vSphere\",\n                    \"version\": \"vSphere 6.7 Update 2\",\n                    \"versionId\": 2\n                },\n                \"server\": {\n                    \"totalCpuCores\": 120,\n                    \"totalRAM\": 1536\n                },\n                \"storage\": {\n                    \"dataReduction\": false,\n                    \"encryption\": false,\n                    \"totalClusterStorageTB\": 4\n                }\n            },\n            \"serverCount\": 3,\n            \"serverInfo\": {\n                \"model\": \"PowerEdge MX840c\",\n                \"cpuSpeed\": 2.4,\n                \"cpuCoreCount\": 20,\n                \"cpuSocketCount\": 2,\n                \"totalMemory\": 512\n            },\n            \"storageArrayInfo\": {\n                \"id\": \"000197900283\",\n                \"name\": \"POWERMAX-01\",\n                \"type\": 0,\n                \"model\": \"PowerMax_2000\"\n            }\n        },\n        {\n            \"id\": \"CLUSTER_3\",\n            \"name\": \"Alberto01\",\n            \"clusterProperties\": {\n                \"platform\": {\n                    \"platformType\": \"vSphere+NSX\",\n                    \"version\": \"vSphere 6.7\",\n                    \"versionId\": 2\n                },\n                \"server\": {\n                    \"totalCpuCores\": 84,\n                    \"totalRAM\": 384\n                },\n                \"storage\": {\n                    \"dataReduction\": false,\n                    \"encryption\": false,\n                    \"totalClusterStorageTB\": 4\n                }\n            },\n            \"serverCount\": 3,\n            \"serverInfo\": {\n                \"model\": \"PowerEdge MX740c\",\n                \"cpuSpeed\": 2,\n                \"cpuCoreCount\": 14,\n                \"cpuSocketCount\": 2,\n                \"totalMemory\": 128\n            },\n            \"storageArrayInfo\": {\n                \"id\": \"000197900283\",\n                \"name\": \"POWERMAX-01\",\n                \"type\": 0,\n                \"model\": \"PowerMax_2000\"\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "select-assets new cluster",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Alberto01\",\n    \"requirements\": {\n        \"platform\": {\n            \"platformType\": \"vSphere\",\n            \"version\": \"vSphere 6.7 Update 2\",\n            \"versionId\": 2\n        },\n        \"server\": {\n            \"totalCpuCores\": 80,\n            \"totalRAM\": 350\n        },\n        \"storage\": {\n            \"totalClusterStorageTB\": 4,\n            \"dataReduction\": false,\n            \"encryption\": false\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/logical/clusters/select-assets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"logical",
+						"clusters",
+						"select-assets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "select-assets new cluster",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Alberto01\",\n    \"requirements\": {\n        \"platform\": {\n            \"platformType\": \"vSphere\",\n            \"version\": \"vSphere 6.7 Update 2\",\n            \"versionId\": 2\n        },\n        \"server\": {\n            \"totalCpuCores\": 80,\n            \"totalRAM\": 350\n        },\n        \"storage\": {\n            \"totalClusterStorageTB\": 4,\n            \"dataReduction\": false,\n            \"encryption\": false\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/logical/clusters/select-assets",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"logical",
+								"clusters",
+								"select-assets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1473"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5c1-EgO073X42EO8+Cg5o0PHAFhfmgk\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 04:28:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"requirements\": {\n        \"name\": \"Alberto01\",\n        \"requirements\": {\n            \"platform\": {\n                \"platformType\": \"vSphere\",\n                \"version\": \"vSphere 6.7 Update 2\",\n                \"versionId\": 2\n            },\n            \"server\": {\n                \"totalCpuCores\": 80,\n                \"totalRAM\": 350\n            },\n            \"storage\": {\n                \"totalClusterStorageTB\": 4,\n                \"dataReduction\": false,\n                \"encryption\": false\n            }\n        }\n    },\n    \"proposedAssets\": [\n        {\n            \"serverInfo\": {\n                \"model\": \"PowerEdge MX740c\",\n                \"cpuSpeed\": 2,\n                \"cpuSocketCount\": 2,\n                \"cpuCoreCount\": 14,\n                \"totalMemory\": 128\n            },\n            \"proposedServers\": [\n                {\n                    \"serviceTag\": \"1479XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"147CXM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"1499XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                }\n            ],\n            \"availableServers\": [\n                {\n                    \"serviceTag\": \"8FDWLN4\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"7FGYLN2\"\n                },\n                {\n                    \"serviceTag\": \"8FDWLN8\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"7FGYLN2\"\n                }\n            ],\n            \"proposedStorage\": {\n                \"id\": \"000197900283\",\n                \"name\": \"POWERMAX-01\",\n                \"type\": \"PowerMax\",\n                \"model\": \"PowerMax_2000\",\n                \"freeCapacity\": 2043,\n                \"volumeInfo\": {\n                    \"volumeCapacity\": 1,\n                    \"volumeCount\": 4\n                }\n            }\n        },\n        {\n            \"serverInfo\": {\n                \"model\": \"PowerEdge MX840c\",\n                \"cpuSpeed\": 2.4,\n                \"cpuSocketCount\": 2,\n                \"cpuCoreCount\": 20,\n                \"totalMemory\": 512\n            },\n            \"proposedServers\": [\n                {\n                    \"serviceTag\": \"7FDP9N2\",\n                    \"cabinet\": 3,\n                    \"chassisServiceTag\": \"7HGYLN2\"\n                },\n                {\n                    \"serviceTag\": \"7FDQ9N2\",\n                    \"cabinet\": 3,\n                    \"chassisServiceTag\": \"7HGYLN2\"\n                },\n                {\n                    \"serviceTag\": \"7FDWLN2\",\n                    \"cabinet\": 3,\n                    \"chassisServiceTag\": \"7GGYLN2\"\n                }\n            ],\n            \"availableServers\": [],\n            \"proposedStorage\": {\n                \"id\": \"000197900283\",\n                \"name\": \"POWERMAX-01\",\n                \"type\": \"PowerMax\",\n                \"model\": \"PowerMax_2000\",\n                \"freeCapacity\": 2043,\n                \"volumeInfo\": {\n                    \"volumeCapacity\": 1,\n                    \"volumeCount\": 4\n                }\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create cluster",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"summary\": {\r\n    \"name\": \"Alberto01\",\r\n    \"requirements\": {\r\n      \"platform\": {\r\n        \"platformType\": \"vSphere+NSX\",\r\n        \"version\": \"vSphere 6.7\",\r\n        \"versionId\": 2\r\n      },\r\n      \"server\": {\r\n        \"totalCpuCores\": 84,\r\n        \"totalRAM\": 384\r\n      },\r\n      \"storage\": {\r\n        \"totalClusterStorageTB\": 4,\r\n        \"dataReduction\": false,\r\n        \"encryption\": false\r\n      }\r\n    },\r\n    \"assets\": {\r\n      \"server\": [\r\n\t  \"SVCTAG1\",\"SVCTAG2\",\"SVCTAG3\"\r\n      ],\r\n      \"storage\": {\r\n        \"arrayInfo\": {\r\n          \"id\": \"000197900283\",\r\n          \"name\": \"POWERMAX-01\",\r\n          \"type\": 0,\r\n          \"model\": \"PowerMax_2000\"\r\n        },\r\n        \"volumeCapacity\": 1,\r\n        \"volumeCount\": 4\r\n      }\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/logical/clusters",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"logical",
+						"clusters"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create cluster",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"summary\": {\r\n    \"name\": \"Alberto01\",\r\n    \"requirements\": {\r\n      \"platform\": {\r\n        \"platformType\": \"vSphere+NSX\",\r\n        \"version\": \"vSphere 6.7\",\r\n        \"versionId\": 2\r\n      },\r\n      \"server\": {\r\n        \"totalCpuCores\": 84,\r\n        \"totalRAM\": 384\r\n      },\r\n      \"storage\": {\r\n        \"totalClusterStorageTB\": 4,\r\n        \"dataReduction\": false,\r\n        \"encryption\": false\r\n      }\r\n    },\r\n    \"assets\": {\r\n      \"server\": [\r\n\t  \"1479XM2\",\"147CXM2\",\"1499XM2\"\r\n      ],\r\n      \"storage\": {\r\n        \"arrayInfo\": {\r\n          \"id\": \"000197900283\",\r\n          \"name\": \"POWERMAX-01\",\r\n          \"type\": 0,\r\n          \"model\": \"PowerMax_2000\"\r\n        },\r\n        \"volumeCapacity\": 1,\r\n        \"volumeCount\": 4\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/logical/clusters",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"logical",
+								"clusters"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-J6BKmd7cQ4ectRrAWbXm5X12Cg4\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 04:48:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"c9bc459e-a631-4336-3c8c-2d7ee762361e\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get job details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/system/jobs/204d7c94-1b39-46e2-cf5d-fac229ed1129",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"system",
+						"jobs",
+						"204d7c94-1b39-46e2-cf5d-fac229ed1129"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get job details - successful",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/system/jobs/204d7c94-1b39-46e2-cf5d-fac229ed1129",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"system",
+								"jobs",
+								"204d7c94-1b39-46e2-cf5d-fac229ed1129"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "269"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10d-U5AK9TxC6z3onOIWoPTSJtg4quc\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 04:19:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"204d7c94-1b39-46e2-cf5d-fac229ed1129\",\n    \"name\": \"Remove Cluster\",\n    \"description\": \"Removes a Cluster\",\n    \"status\": \"successful\",\n    \"failed\": false,\n    \"started\": \"2020-04-16T04:18:29.266Z\",\n    \"created\": \"2020-04-16T04:18:25.255Z\",\n    \"finished\": \"2020-04-16T04:18:43.289Z\",\n    \"elapsed\": 14.023\n}"
+				},
+				{
+					"name": "Get job details - running",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/system/jobs/204d7c94-1b39-46e2-cf5d-fac229ed1129",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"system",
+								"jobs",
+								"204d7c94-1b39-46e2-cf5d-fac229ed1129"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "242"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f2-tE8kGiGjxWl58hm8uauKPI4LrJQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 04:18:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"204d7c94-1b39-46e2-cf5d-fac229ed1129\",\n    \"name\": \"Remove Cluster\",\n    \"description\": \"Removes a Cluster\",\n    \"status\": \"running\",\n    \"failed\": false,\n    \"started\": \"2020-04-16T04:18:29.266Z\",\n    \"created\": \"2020-04-16T04:18:25.255Z\",\n    \"finished\": null,\n    \"elapsed\": null\n}"
+				},
+				{
+					"name": "Get job details - modify cluster running",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/system/jobs/ba8ca4d7-2ca8-4035-4678-a839fd6f2499",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"system",
+								"jobs",
+								"ba8ca4d7-2ca8-4035-4678-a839fd6f2499"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "243"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f3-HLJLF7XG29GwCn6CBvwZXYzHIoc\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 05:21:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"ba8ca4d7-2ca8-4035-4678-a839fd6f2499\",\n    \"name\": \"Modify Cluster\",\n    \"description\": \"Modifies a Cluster\",\n    \"status\": \"running\",\n    \"failed\": false,\n    \"started\": \"2020-04-16T05:21:41.952Z\",\n    \"created\": \"2020-04-16T05:21:37.945Z\",\n    \"finished\": null,\n    \"elapsed\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Get specific cluster details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/logical/clusters/CLUSTER_3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"logical",
+						"clusters",
+						"CLUSTER_3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get specific cluster details",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/logical/clusters/CLUSTER_3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"logical",
+								"clusters",
+								"CLUSTER_3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1203"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4b3-WOTY6perVzrsTzju7xETFyR8kFY\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 04:49:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Alberto01\",\n    \"id\": \"CLUSTER_3\",\n    \"summary\": {\n        \"requirements\": {\n            \"platform\": {\n                \"platformType\": \"vSphere+NSX\",\n                \"version\": \"vSphere 6.7\",\n                \"versionId\": 2\n            },\n            \"storage\": {\n                \"dataReduction\": false,\n                \"encryption\": false,\n                \"totalClusterStorageTB\": 4\n            },\n            \"server\": {\n                \"totalCpuCores\": 84,\n                \"totalRAM\": 384\n            }\n        },\n        \"server\": [\n            {\n                \"serverInfo\": {\n                    \"serviceTag\": \"1479XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                \"serverProperties\": {\n                    \"model\": \"PowerEdge MX740c\",\n                    \"cpuSpeed\": 2,\n                    \"cpuSocketCount\": 2,\n                    \"cpuCoreCount\": 14,\n                    \"totalMemory\": 128\n                }\n            },\n            {\n                \"serverInfo\": {\n                    \"serviceTag\": \"147CXM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                \"serverProperties\": {\n                    \"model\": \"PowerEdge MX740c\",\n                    \"cpuSpeed\": 2,\n                    \"cpuSocketCount\": 2,\n                    \"cpuCoreCount\": 14,\n                    \"totalMemory\": 128\n                }\n            },\n            {\n                \"serverInfo\": {\n                    \"serviceTag\": \"1499XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                \"serverProperties\": {\n                    \"model\": \"PowerEdge MX740c\",\n                    \"cpuSpeed\": 2,\n                    \"cpuSocketCount\": 2,\n                    \"cpuCoreCount\": 14,\n                    \"totalMemory\": 128\n                }\n            }\n        ],\n        \"storage\": {\n            \"arrayName\": {\n                \"id\": \"000197900283\",\n                \"name\": \"POWERMAX-01\",\n                \"type\": 0,\n                \"model\": \"PowerMax_2000\"\n            },\n            \"volumeDetails\": {\n                \"capacity\": 1,\n                \"name\": [\n                    \"DBVOL-01\",\n                    \"DBVOL-02\",\n                    \"DBVOL-03\",\n                    \"DBVOL-04\"\n                ]\n            },\n            \"portGroupInfo\": [\n                \"SPG-1\",\n                \"SPG-2\"\n            ]\n        },\n        \"serverInfo\": {\n            \"model\": \"PowerEdge MX740c\",\n            \"cpuSpeed\": 2,\n            \"cpuCoreCount\": 14,\n            \"cpuSocketCount\": 2,\n            \"totalMemory\": 128\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "select-assets expand cluster",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"CLUSTER_3\",\n    \"name\": \"Alberto01\",\n    \"requirements\": {\n        \"platform\": {\n            \"platformType\": \"vSphere+NSX\",\n            \"version\": \"vSphere 6.7\",\n            \"versionId\": 2\n        },\n        \"server\": {\n            \"totalCpuCores\": 100,\n            \"totalRAM\": 400\n        },\n        \"storage\": {\n            \"totalClusterStorageTB\": 6,\n            \"dataReduction\": false,\n            \"encryption\": false\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/logical/clusters/select-assets",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"logical",
+						"clusters",
+						"select-assets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "select-assets expand CLUSTER_1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"CLUSTER_1\",\n    \"name\": \"Production\",\n    \"requirements\": {\n        \"platform\": {\n            \"platformType\": \"vSphere\",\n            \"version\": \"vSphere 6.7 Update 1\",\n            \"versionId\": 1\n        },\n        \"server\": {\n            \"totalCpuCores\": 84,\n            \"totalRAM\": 384\n        },\n        \"storage\": {\n            \"totalClusterStorageTB\": 4,\n            \"dataReduction\": false,\n            \"encryption\": false\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/logical/clusters/select-assets",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"logical",
+								"clusters",
+								"select-assets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1162"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"48a-uUVDhM0WXCK4f4cndNnqxHLCNtQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Apr 2020 04:56:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"requirements\": {\n        \"id\": \"CLUSTER_1\",\n        \"name\": \"Production\",\n        \"requirements\": {\n            \"platform\": {\n                \"platformType\": \"vSphere\",\n                \"version\": \"vSphere 6.7 Update 1\",\n                \"versionId\": 1\n            },\n            \"server\": {\n                \"totalCpuCores\": 84,\n                \"totalRAM\": 384\n            },\n            \"storage\": {\n                \"totalClusterStorageTB\": 4,\n                \"dataReduction\": false,\n                \"encryption\": false\n            }\n        }\n    },\n    \"proposedAssets\": [\n        {\n            \"serverInfo\": {\n                \"model\": \"PowerEdge MX740c\",\n                \"cpuSpeed\": 2,\n                \"cpuSocketCount\": 2,\n                \"cpuCoreCount\": 14,\n                \"totalMemory\": 128\n            },\n            \"proposedServers\": [\n                {\n                    \"serviceTag\": \"1476XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"1477XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"9FDWLN3\",\n                    \"cabinet\": 3,\n                    \"chassisServiceTag\": \"7HGYLN2\"\n                }\n            ],\n            \"availableServers\": [\n                {\n                    \"serviceTag\": \"1479XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"147CXM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"1499XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"8FDWLN4\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"7FGYLN2\"\n                },\n                {\n                    \"serviceTag\": \"8FDWLN8\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"7FGYLN2\"\n                }\n            ],\n            \"proposedStorage\": {\n                \"id\": \"000197900283\",\n                \"name\": \"POWERMAX-01\",\n                \"type\": \"PowerMax\",\n                \"model\": \"PowerMax_2000\",\n                \"freeCapacity\": 2043,\n                \"volumeInfo\": {\n                    \"volumeCapacity\": 1,\n                    \"volumeCount\": 4\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "select-assets expand CLUSTER_3",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"CLUSTER_3\",\n    \"name\": \"Alberto01\",\n    \"requirements\": {\n        \"platform\": {\n            \"platformType\": \"vSphere+NSX\",\n            \"version\": \"vSphere 6.7\",\n            \"versionId\": 2\n        },\n        \"server\": {\n            \"totalCpuCores\": 100,\n            \"totalRAM\": 400\n        },\n        \"storage\": {\n            \"totalClusterStorageTB\": 6,\n            \"dataReduction\": false,\n            \"encryption\": false\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/logical/clusters/select-assets",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"logical",
+								"clusters",
+								"select-assets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "956"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3bc-f4li3wKYwolNDM4QxxRh9a5klRs\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 05:16:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"requirements\": {\n        \"id\": \"CLUSTER_3\",\n        \"name\": \"Alberto01\",\n        \"requirements\": {\n            \"platform\": {\n                \"platformType\": \"vSphere+NSX\",\n                \"version\": \"vSphere 6.7\",\n                \"versionId\": 2\n            },\n            \"server\": {\n                \"totalCpuCores\": 100,\n                \"totalRAM\": 400\n            },\n            \"storage\": {\n                \"totalClusterStorageTB\": 6,\n                \"dataReduction\": false,\n                \"encryption\": false\n            }\n        }\n    },\n    \"proposedAssets\": [\n        {\n            \"serverInfo\": {\n                \"model\": \"PowerEdge MX740c\",\n                \"cpuSpeed\": 2,\n                \"cpuSocketCount\": 2,\n                \"cpuCoreCount\": 14,\n                \"totalMemory\": 128\n            },\n            \"proposedServers\": [\n                {\n                    \"serviceTag\": \"1479XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"147CXM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"1499XM2\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"149CXM2\"\n                },\n                {\n                    \"serviceTag\": \"8FDWLN4\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"7FGYLN2\"\n                }\n            ],\n            \"availableServers\": [\n                {\n                    \"serviceTag\": \"8FDWLN8\",\n                    \"cabinet\": 1,\n                    \"chassisServiceTag\": \"7FGYLN2\"\n                }\n            ],\n            \"proposedStorage\": {\n                \"id\": \"000197900283\",\n                \"name\": \"POWERMAX-01\",\n                \"type\": \"PowerMax\",\n                \"model\": \"PowerMax_2000\",\n                \"freeCapacity\": 2041,\n                \"volumeInfo\": {\n                    \"volumeCapacity\": 1,\n                    \"volumeCount\": 6\n                }\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Modify cluster - server and storage",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"summary\": {\r\n    \"name\": \"Alberto01\",\r\n    \"requirements\": {\r\n      \"platform\": {\r\n        \"platformType\": \"vSphere+NSX\",\r\n        \"version\": \"vSphere 6.7\",\r\n        \"versionId\": 2\r\n      },\r\n      \"server\": {\r\n        \"totalCpuCores\": 100,\r\n        \"totalRAM\": 400\r\n      },\r\n      \"storage\": {\r\n        \"totalClusterStorageTB\": 6,\r\n        \"dataReduction\": false,\r\n        \"encryption\": false\r\n      }\r\n    },\r\n    \"assets\": {\r\n      \"server\": [\r\n\t  \"1479XM2\",\"147CXM2\",\"1499XM2\",\"SVCTAG4\"\r\n      ],\r\n      \"storage\": {\r\n        \"arrayInfo\": {\r\n          \"id\": \"000197900283\",\r\n          \"name\": \"POWERMAX-01\",\r\n          \"type\": 0,\r\n          \"model\": \"PowerMax_2000\"\r\n        },\r\n        \"volumeCapacity\": 1,\r\n        \"volumeCount\": 6\r\n      }\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/logical/clusters/CLUSTER_3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"logical",
+						"clusters",
+						"CLUSTER_3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Modify cluster - server and storage",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"summary\": {\r\n    \"name\": \"Alberto01\",\r\n    \"requirements\": {\r\n      \"platform\": {\r\n        \"platformType\": \"vSphere+NSX\",\r\n        \"version\": \"vSphere 6.7\",\r\n        \"versionId\": 2\r\n      },\r\n      \"server\": {\r\n        \"totalCpuCores\": 100,\r\n        \"totalRAM\": 400\r\n      },\r\n      \"storage\": {\r\n        \"totalClusterStorageTB\": 6,\r\n        \"dataReduction\": false,\r\n        \"encryption\": false\r\n      }\r\n    },\r\n    \"assets\": {\r\n      \"server\": [\r\n\t  \"1479XM2\",\"147CXM2\",\"1499XM2\",\"8FDWLN8\"\r\n      ],\r\n      \"storage\": {\r\n        \"arrayInfo\": {\r\n          \"id\": \"000197900283\",\r\n          \"name\": \"POWERMAX-01\",\r\n          \"type\": 0,\r\n          \"model\": \"PowerMax_2000\"\r\n        },\r\n        \"volumeCapacity\": 1,\r\n        \"volumeCount\": 6\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3000/logical/clusters/CLUSTER_3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"logical",
+								"clusters",
+								"CLUSTER_3"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-N+QNwmxGtyeu/O570cX6nlf6cIs\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 05:25:11 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"76ee5e69-65fa-4735-07a7-8962c9daaa64\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete a cluster",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/logical/clusters/CLUSTER_3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"logical",
+						"clusters",
+						"CLUSTER_3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a cluster",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3000/logical/clusters/CLUSTER_3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3000",
+							"path": [
+								"logical",
+								"clusters",
+								"CLUSTER_3"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-ZUqi2ZIyerAeNwRQkS60soOVSRA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 16 Apr 2020 04:46:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"27859f03-a920-4f9d-7ab7-f0e0e27a28d6\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a1914daf-6bb1-4039-b36a-d0bd2c2e8851",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "994d1861-1538-4b3f-be5e-22629a8f3ef7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

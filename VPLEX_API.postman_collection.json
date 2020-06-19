@@ -1,0 +1,631 @@
+{
+	"info": {
+		"_postman_id": "f7d75a36-ade1-40a0-9f8f-95a1120eefa2",
+		"name": "VPLEX API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clusters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "StorageVolumes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/storage_volumes",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"storage_volumes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VirtualVolumes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/virtual_volumes",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"virtual_volumes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Extent",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5331ba7d-97e7-486e-bcae-2c9b6731997e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"storage_volume\": \"{{storageVolumeFullPath}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/extents",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"extents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Device",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"primary_leg\": \"{{extentFullPath}}\",\n    \"name\": \"{{deviceName}}\",\n    \"geometry\": \"raid-0\",\n    \"stripe_depth\": \"32\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/devices",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Virtual Volume",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"device\": \"{{deviceFullPath}}\",\n    \"thin\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/virtual_volumes",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"virtual_volumes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Virtual Volume",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/virtual_volumes/{{virtualVolume}}",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"virtual_volumes",
+						"{{virtualVolume}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Device",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/devices/{{deviceID}}",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"devices",
+						"{{deviceID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Extent",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/extents/{{extentID}}",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"extents",
+						"{{extentID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unclaim storage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"storage_volume\": \"VPD83T3:600601602ed02c00d81944e6b5d0e111\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/storage_volumes/{{storageVolume}}/unclaim",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"storage_volumes",
+						"{{storageVolume}}",
+						"unclaim"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Claim storage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"storage_volume\": \"{{storageVolume}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/storage_volumes/{{storageVolume}}/claim",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"storage_volumes",
+						"{{storageVolume}}",
+						"claim"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Storage View",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n"
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/exports/storage_views/{{storageView}}",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"exports",
+						"storage_views",
+						"{{storageView}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add VVol to Storage View",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n\t\"op\": \"add\",\r\n\t\"path\": \"/virtual_volumes\",\r\n\t\"value\": \"{{virtualVolumeFullPath}}\"\r\n}]\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/exports/storage_views/{{storageView}}",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"exports",
+						"storage_views",
+						"{{storageView}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rename V Vol",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n\t\"op\": \"replace\",\r\n\t\"path\": \"/name\",\r\n\t\"value\": \"{{newVVname}}\"\r\n}]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/virtual_volumes/{{virtualVolume}}",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"virtual_volumes",
+						"{{virtualVolume}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unexported Volumes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/virtual_volumes?service_status=unexported",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"virtual_volumes"
+					],
+					"query": [
+						{
+							"key": "service_status",
+							"value": "unexported"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove V Vol from StorageView",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n\t\"op\": \"remove\",\r\n\t\"path\": \"/virtual_volumes\",\r\n\t\"value\": \"{{virtualVolumeFullPath}}\"\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/exports/storage_views/{{storageView}}",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"exports",
+						"storage_views",
+						"{{storageView}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unclaimed volumes",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "service",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{clusterIP}}/vplex/v2/clusters/{{clusterID}}/storage_arrays/{{storageArray}}/name_mapping",
+					"protocol": "https",
+					"host": [
+						"{{clusterIP}}"
+					],
+					"path": [
+						"vplex",
+						"v2",
+						"clusters",
+						"{{clusterID}}",
+						"storage_arrays",
+						"{{storageArray}}",
+						"name_mapping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{pwd}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "service",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e9bae5d0-62d0-463b-98ba-96cba7feac1c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "652691ae-c900-4b2d-95bd-5d008245c02f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
