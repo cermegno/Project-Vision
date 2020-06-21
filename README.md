@@ -5,7 +5,7 @@ This Avengers' project leverages Postman's import collection capabilities to pro
  - PowerMax
  - PowerStore
  - PowerOne (tested only with the PowerOne simulator)
- - VPLEX (this collection has been kindly contributed by Ankur Patel)
+ - VPLEX - this collection has been kindly contributed by [Ankur Patel](https://www.youtube.com/channel/UC_Y46gxyBVWH2Xr7qSJ32Kw)
  - VxFlex (formerly ScaleIO)
  - XtremIO
  - Unity
