@@ -20,3 +20,13 @@ Where possible, API calls in these collections have been provided with a sample 
 For more details about the Project Vision and its deliverables visit the following blog posts
 http://anzpiper.blogspot.com/2019/12/postman-collections-for-dellemc-block.html
 http://anzpiper.blogspot.com/2020/01/project-vision-in-action.html
+
+The following table shows the different parameters that are required for each collection
+Array | Variable | Variable | Variable
+------|----------|----------|----------
+XtremIO | ip | pwd | 
+Unity | ip | pwd | csrfToken
+PowerMax/VMAX | ip | pwd | serial
+PowerFlex | ip | pwd | token
+PowerStore | ip | pwd | token
+PowerOne |  |  | token
