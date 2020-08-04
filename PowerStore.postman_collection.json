@@ -102,6 +102,26 @@
 			]
 		},
 		{
+			"name": "get cluster basic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/api/rest/cluster",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"cluster"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get cluster",
 			"request": {
 				"method": "GET",
