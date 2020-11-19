@@ -1,0 +1,849 @@
+{
+	"info": {
+		"_postman_id": "a22875e2-68e7-4919-817c-c191bef837b5",
+		"name": "ECS S3 API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Buckets Metadata",
+			"request": {
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}"
+					]
+				},
+				"description": "Download the metadata of a bucket."
+			},
+			"response": []
+		},
+		{
+			"name": "Object Metadata",
+			"request": {
+				"method": "HEAD",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}/cisco.exe",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}",
+						"cisco.exe"
+					],
+					"query": [
+						{
+							"key": "versionId",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Download the metadata of a bucket."
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Bucket",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-emc-retention-period",
+						"type": "text",
+						"value": "200",
+						"description": "Implicitly applying retention period in seconds for all objects in bucket, -1 denotes infinity",
+						"disabled": true
+					},
+					{
+						"key": "x-emc-file-system-access-enabled",
+						"value": "True",
+						"description": "Flag (True) that indicates whether the bucket can be accessed as HDFS",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-emc-server-side-encryption-enabled",
+						"value": "True",
+						"description": "Flag (True) indicating whether any object placed within bucket is encrypted by the System. D@RE Encryption",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-emc-is-stale-allowed",
+						"value": "True",
+						"description": "Container Flag (True) that indicates whether the bucket can be accessed during a temporary VDC outage in a federated configuration",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-emc-compliance-enabled",
+						"value": "True",
+						"description": "Flag indicating whether bucket has compliance mode enabled.",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-emc-dataservice-vpool",
+						"value": "",
+						"description": "The replication group to associate the new bucket with. This determines the data stores used to store the objects associated with this bucket. If this header is not present, the default replication group defined for the associated namespace is used.",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-emc-namespace",
+						"value": "",
+						"description": "Namespace to be used for this bucket. If the namespace is not specified using the S3 convention of host/path style request, it can be specified using the x-emc-namespace header. If the namespace is not specified in this header either, and if the request is from a registered user, the namespace associated with that user is used. If all of these attempts fail, the request is rejected.",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-emc-metadata-search",
+						"value": "x-amz-meta-<NAME>;String,x-amz-meta<NAME>;String",
+						"description": "Assigns a list in the form \"keyname[;datatype],...\" of system- and user-metadata keynames that can be used later in bucket searches for the purpose of filtering object lists based querying these keys",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{endpoint}}/retention",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"retention"
+					]
+				},
+				"description": "Rules for Bucket Naming\r\nBucket names must comply with the following rules in order to be DNS compliant:\r\n\r\nBucket names must be at least 3 and no more than 63 characters long\r\n\r\nBucket name must be a series of one or more labels separated by a period (.)\r\n\r\nBucket names can contain lowercase letters, numbers and dashes\r\n\r\nBucket names must not be formatted as an IP address (for example 192.168.5.4)."
+			},
+			"response": []
+		},
+		{
+			"name": "Enable Versioning on Bucket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<VersioningConfiguration>\r\n   <Status>Enabled</Status>\r\n</VersioningConfiguration>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}?versioning",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}"
+					],
+					"query": [
+						{
+							"key": "versioning",
+							"value": null
+						}
+					]
+				},
+				"description": "Enabled = Turn on versioning, Suspended = Disable versioning"
+			},
+			"response": []
+		},
+		{
+			"name": "List Buckets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{endpoint}}/?list-type=2",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "list-type",
+							"value": "2",
+							"description": "Query list-type 0 1 String Indicate the request is V2 API request by setting its value to 2. Otherwise, the request will be treated as v1 request."
+						},
+						{
+							"key": "delimiter",
+							"value": null,
+							"description": "Query delimiter 0 1 String A character used to group keys (object names). CommonPrefixes result element is returned which has the keys containing the same string between the prefix and the first occurrence of the delimiter. If prefix is not specified, the substring will start at the beginning of the key.",
+							"disabled": true
+						},
+						{
+							"key": "prefix",
+							"value": null,
+							"description": "Query prefix 0 1 String Only keys beginning with the specified prefix are returned in the response.",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Bucket Versioning",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": ""
+					},
+					"options": {
+						"file": {}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}?versioning",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}"
+					],
+					"query": [
+						{
+							"key": "versioning",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Check Bucket Versioning",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							},
+							"options": {
+								"file": {}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{bucket}}?versioning",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{bucket}}"
+							],
+							"query": [
+								{
+									"key": "versioning",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 27 Oct 2020 05:57:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ViPR/1.0"
+						},
+						{
+							"key": "x-amz-request-id",
+							"value": "0c07c835:17523626b29:17d8c:4f"
+						},
+						{
+							"key": "x-amz-id-2",
+							"value": "584e3308242dc7b89dd3ae21b0df182a9663dd0a1a8a45a508ced3d0e0688cfa"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<VersioningConfiguration xmlns=\"http://s3.amazonaws.com/doc/2006-03-01/\">\n    <Status>Enabled</Status>\n</VersioningConfiguration>"
+				}
+			]
+		},
+		{
+			"name": "List Object and VersionId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": ""
+					},
+					"options": {
+						"file": {}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}?cors",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}"
+					],
+					"query": [
+						{
+							"key": "versions",
+							"value": "",
+							"description": "displays the version ID of objects in a version enabled bucket",
+							"disabled": true
+						},
+						{
+							"key": "prefix",
+							"value": "doc",
+							"description": "specifiy a prefix to limit object listing",
+							"disabled": true
+						},
+						{
+							"key": "tagging",
+							"value": "presentation",
+							"description": "Display the tagging information on objects",
+							"disabled": true
+						},
+						{
+							"key": "query",
+							"value": "x-amz-meta-name==chris and x-amz-meta-age>20",
+							"description": "Search a metadata enabled bucket on ECS",
+							"disabled": true
+						},
+						{
+							"key": "searchmetadata",
+							"value": "",
+							"description": "shows all the indexed fields on a metadata enabled bucket",
+							"disabled": true
+						},
+						{
+							"key": "cors",
+							"value": null,
+							"description": "Cross Origin Resource Sharing"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Display Object Headers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "HEAD",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/jenkic5/Downloads/Upload/version_example.txt.txt"
+					},
+					"options": {
+						"file": {}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}/cisco.exe",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}",
+						"cisco.exe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Data Into Bucket",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-amz-tagging",
+						"value": "app=webex",
+						"description": "Apply object tagging to an object on upload",
+						"type": "text"
+					},
+					{
+						"key": "x-emc-retention-period",
+						"value": "",
+						"description": "Applying retention period in seconds, -1 denotes infinity",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-amz-copy-source",
+						"value": "",
+						"description": "Used to specify the name of the source bucket and key name of the source object, separated by a slash. Default copy mode is shallow and only specific scenario where the shallow copy cannot be performed will be switch over to deep-mode, such as in the case of TSO, different encryption settings for bucket, etc.",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-amz-metadata-directive",
+						"value": "",
+						"description": "Used to specify the metadata directive to be used when copying an object either to itself or a different object, valid values include,\nCOPY - This metadata directive value will copy over all metadata information from the source object to the destination object. It is only allowed if the object is not being copied to itself.\nMERGE - This metadata directive value will copy over all metadata information from the source object to the destination object including any new metadata from the request.\nREPLACE - This metadata directive value will replace all metadata information from the source object with the any new metadata from the request.",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-amz-meta-name",
+						"value": "chris",
+						"description": "Custom Metadata",
+						"type": "text"
+					},
+					{
+						"key": "x-amz-meta-age",
+						"value": "30",
+						"description": "Custom Metadata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/jenkic5/Downloads/Cisco_WebEx_Add-On (3).exe"
+					},
+					"options": {
+						"file": {}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}/cisco.exe",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}",
+						"cisco.exe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Object",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/jenkic5/Downloads/Cisco_WebEx_Add-On (1).exe"
+					},
+					"options": {
+						"file": {}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}/cisco.exe",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}",
+						"cisco.exe"
+					],
+					"query": [
+						{
+							"key": "versionId",
+							"value": null,
+							"description": "Enter versionID of the object you want to delete.",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE Object",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/jenkic5/Downloads/Cisco_WebEx_Add-On (1).exe"
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{bucket}}/cisco.exe",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{bucket}}",
+								"cisco.exe"
+							],
+							"query": [
+								{
+									"key": "versionId",
+									"value": null,
+									"description": "Enter versionID of the object you want to delete.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 27 Oct 2020 06:07:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ViPR/1.0"
+						},
+						{
+							"key": "x-amz-request-id",
+							"value": "0c07c832:1752362487f:16c18:104c"
+						},
+						{
+							"key": "x-amz-id-2",
+							"value": "ac0c0e094645edf9fc31a9b204ee143ab0cfe095fb92ddaaa77c4d9c0da5830b"
+						},
+						{
+							"key": "x-amz-version-id",
+							"value": "1603778973242"
+						},
+						{
+							"key": "x-amz-delete-marker",
+							"value": "true"
+						},
+						{
+							"key": "x-emc-previous-object-size",
+							"value": "0"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "DELETE Bucket",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/jenkic5/Downloads/Cisco_WebEx_Add-On (1).exe"
+					},
+					"options": {
+						"file": {}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE Object",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/C:/Users/jenkic5/Downloads/Cisco_WebEx_Add-On (1).exe"
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{bucket}}/cisco.exe",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{bucket}}",
+								"cisco.exe"
+							],
+							"query": [
+								{
+									"key": "versionId",
+									"value": null,
+									"description": "Enter versionID of the object you want to delete.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Tue, 27 Oct 2020 06:07:54 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ViPR/1.0"
+						},
+						{
+							"key": "x-amz-request-id",
+							"value": "0c07c832:1752362487f:16c18:104c"
+						},
+						{
+							"key": "x-amz-id-2",
+							"value": "ac0c0e094645edf9fc31a9b204ee143ab0cfe095fb92ddaaa77c4d9c0da5830b"
+						},
+						{
+							"key": "x-amz-version-id",
+							"value": "1603778973242"
+						},
+						{
+							"key": "x-amz-delete-marker",
+							"value": "true"
+						},
+						{
+							"key": "x-emc-previous-object-size",
+							"value": "0"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Check bucket policy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}?policy",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}"
+					],
+					"query": [
+						{
+							"key": "policy",
+							"value": null
+						}
+					]
+				},
+				"description": "This checks for a bucket policy"
+			},
+			"response": []
+		},
+		{
+			"name": "Add CORS configuration to Bucket",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<CORSConfiguration>\r\n   <CORSRule>\r\n      <AllowedOrigin>https://object.ecstestdrive.com</AllowedOrigin>\r\n      <AllowedMethod>PUT</AllowedMethod>\r\n      <AllowedMethod>GET</AllowedMethod>\r\n      <AllowedHeader>*</AllowedHeader>\r\n   </CORSRule>\r\n</CORSConfiguration>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/{{bucket}}?cors",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"{{bucket}}"
+					],
+					"query": [
+						{
+							"key": "cors",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add CORS configuration to Bucket",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<CORSConfiguration>\r\n   <CORSRule>\r\n      <AllowedOrigin>https://object.ecstestdrive.com</AllowedOrigin>\r\n      <AllowedMethod>PUT</AllowedMethod>\r\n      <AllowedMethod>GET</AllowedMethod>\r\n      <AllowedHeader>*</AllowedHeader>\r\n   </CORSRule>\r\n</CORSConfiguration>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/{{bucket}}?cors",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"{{bucket}}"
+							],
+							"query": [
+								{
+									"key": "cors",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 18 Nov 2020 23:29:25 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "ViPR/1.0"
+						},
+						{
+							"key": "x-amz-request-id",
+							"value": "0a3bc915:174e3a985fe:364b9:9"
+						},
+						{
+							"key": "x-amz-id-2",
+							"value": "7724644decc65f8c6f7c8da1e8c38f55478486e0d3448ecd1176d5679e822036"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "awsv4",
+		"awsv4": [
+			{
+				"key": "secretKey",
+				"value": "{{secretKey}}",
+				"type": "string"
+			},
+			{
+				"key": "accessKey",
+				"value": "{{accessKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "32b69305-85e4-43df-aecd-3bed72b7cada",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "15c3164e-0275-48c8-a13b-9c41d64e87a7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

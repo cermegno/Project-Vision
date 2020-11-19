@@ -1,0 +1,1067 @@
+{
+	"info": {
+		"_postman_id": "5edf8e1e-3a15-43c6-a81e-bdc0edca5a89",
+		"name": "ECS Mgnt API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login Mgnt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d5a0e5a0-5b95-4186-9e9c-873fa09bbf2e",
+						"exec": [
+							"pm.environment.set(\"token\", pm.response.headers.get(\"X-SDS-AUTH-TOKEN\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpointmtg}}/login",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dashboard",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/dashboard/zones/localzone",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"dashboard",
+						"zones",
+						"localzone"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Management User Info",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/vdc/users/root",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"vdc",
+								"users",
+								"root"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 30 Sep 2020 03:58:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "255"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<mgmt_user_info>\n    <is_external_group>false</is_external_group>\n    <is_locked>false</is_locked>\n    <isSystemAdmin>true</isSystemAdmin>\n    <isSystemMonitor>true</isSystemMonitor>\n    <userId>root</userId>\n</mgmt_user_info>"
+				}
+			]
+		},
+		{
+			"name": "List Bucket in Namespace",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/object/bucket?namespace={{namespace}}",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"object",
+						"bucket"
+					],
+					"query": [
+						{
+							"key": "namespace",
+							"value": "{{namespace}}",
+							"description": "Limit listing to a specific namespace"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Management User Info",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/vdc/users/root",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"vdc",
+								"users",
+								"root"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 30 Sep 2020 03:58:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "255"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<mgmt_user_info>\n    <is_external_group>false</is_external_group>\n    <is_locked>false</is_locked>\n    <isSystemAdmin>true</isSystemAdmin>\n    <isSystemMonitor>true</isSystemMonitor>\n    <userId>root</userId>\n</mgmt_user_info>"
+				}
+			]
+		},
+		{
+			"name": "GET List Namespaces",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/object/namespaces",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"object",
+						"namespaces"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3",
+							"description": "Limit the number of list results to be returned",
+							"disabled": true
+						}
+					]
+				},
+				"description": "GET audit logs from ECS for the APJ namespace."
+			},
+			"response": [
+				{
+					"name": "GET All management Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/vdc/users",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"vdc",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 23:48:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6483"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<mgmt_user_infos>\n    <mgmt_user_info>\n        <is_external_group>true</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>10030502_solutionowner@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>true</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>10030502_users@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>andyc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>apjadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>baumaj</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>cbnsmgr</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>colin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>deleteme</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>domain admins@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>ecsosb-admin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>ecsvideo</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>emcsecurity</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>flo</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>kienka@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>koenia</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>kpmg_admin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>lscadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>meyerk1@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>monitoruser</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>nsadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>paulc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>paulc_nsadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>paulh</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>rberesford</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>root</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>splunkapp</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>tim</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>tonimgr</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>torsten</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>ukadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>unruhm</userId>\n    </mgmt_user_info>\n</mgmt_user_infos>"
+				},
+				{
+					"name": "GET Management User Token Count",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/vdc/users/apjadmin/tokenCount",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"vdc",
+								"users",
+								"apjadmin",
+								"tokenCount"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 23:45:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<mgmt_user_info_token_count>\n    <count>1</count>\n</mgmt_user_info_token_count>"
+				}
+			]
+		},
+		{
+			"name": "GET List Management Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/vdc/users",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"vdc",
+						"users"
+					],
+					"query": [
+						{
+							"key": "isSystemAdmin",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "isSystemAdmin",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "GET audit logs from ECS for the APJ namespace."
+			},
+			"response": [
+				{
+					"name": "GET Management User Token Count",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/vdc/users/apjadmin/tokenCount",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"vdc",
+								"users",
+								"apjadmin",
+								"tokenCount"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 23:45:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<mgmt_user_info_token_count>\n    <count>1</count>\n</mgmt_user_info_token_count>"
+				},
+				{
+					"name": "GET All management Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/vdc/users",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"vdc",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 23:48:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6483"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<mgmt_user_infos>\n    <mgmt_user_info>\n        <is_external_group>true</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>10030502_solutionowner@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>true</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>10030502_users@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>andyc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>apjadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>baumaj</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>cbnsmgr</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>colin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>deleteme</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>domain admins@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>ecsosb-admin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>ecsvideo</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>emcsecurity</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>flo</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>kienka@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>koenia</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>kpmg_admin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>lscadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>meyerk1@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>monitoruser</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>nsadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>paulc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>paulc_nsadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>paulh</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>rberesford</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>root</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>splunkapp</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>tim</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>tonimgr</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>torsten</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>ukadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>unruhm</userId>\n    </mgmt_user_info>\n</mgmt_user_infos>"
+				}
+			]
+		},
+		{
+			"name": "GET Management User Token Count",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/vdc/users/{{username}}/tokenCount",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"vdc",
+						"users",
+						"{{username}}",
+						"tokenCount"
+					]
+				},
+				"description": "GET audit logs from ECS for the APJ namespace."
+			},
+			"response": [
+				{
+					"name": "GET Management User Token Count",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/vdc/users/apjadmin/tokenCount",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"vdc",
+								"users",
+								"apjadmin",
+								"tokenCount"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 23:45:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<mgmt_user_info_token_count>\n    <count>1</count>\n</mgmt_user_info_token_count>"
+				}
+			]
+		},
+		{
+			"name": "GET List Object Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/object/users/{{namespace}}",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"object",
+						"users",
+						"{{namespace}}"
+					]
+				},
+				"description": "GET audit logs from ECS for the APJ namespace."
+			},
+			"response": [
+				{
+					"name": "GET All management Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/vdc/users",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"vdc",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 23:48:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "6483"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<mgmt_user_infos>\n    <mgmt_user_info>\n        <is_external_group>true</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>10030502_solutionowner@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>true</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>10030502_users@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>andyc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>apjadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>baumaj</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>cbnsmgr</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>colin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>deleteme</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>domain admins@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>ecsosb-admin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>ecsvideo</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>emcsecurity</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>flo</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>kienka@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>koenia</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>kpmg_admin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>lscadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>meyerk1@lsc.muc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>monitoruser</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>nsadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>paulc</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>false</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>paulc_nsadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>paulh</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>rberesford</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>root</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>splunkapp</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>tim</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>tonimgr</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>torsten</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>true</isSystemMonitor>\n        <userId>ukadmin</userId>\n    </mgmt_user_info>\n    <mgmt_user_info>\n        <is_external_group>false</is_external_group>\n        <is_locked>false</is_locked>\n        <isSystemAdmin>true</isSystemAdmin>\n        <isSystemMonitor>false</isSystemMonitor>\n        <userId>unruhm</userId>\n    </mgmt_user_info>\n</mgmt_user_infos>"
+				},
+				{
+					"name": "GET Management User Token Count",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/vdc/users/apjadmin/tokenCount",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"vdc",
+								"users",
+								"apjadmin",
+								"tokenCount"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 22 Oct 2020 23:45:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "128"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<mgmt_user_info_token_count>\n    <count>1</count>\n</mgmt_user_info_token_count>"
+				}
+			]
+		},
+		{
+			"name": "GET Audit Logs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/vdc/events?namespace={{namespace}}",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"vdc",
+						"events"
+					],
+					"query": [
+						{
+							"key": "namespace",
+							"value": "{{namespace}}"
+						}
+					]
+				},
+				"description": "GET audit logs from ECS for the APJ namespace."
+			},
+			"response": []
+		},
+		{
+			"name": "Replication Group Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/dashboard/zones/localzone/replicationgroups",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"dashboard",
+						"zones",
+						"localzone",
+						"replicationgroups"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Replication Group Status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/dashboard/zones/localzone/replicationgroups",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"dashboard",
+								"zones",
+								"localzone",
+								"replicationgroups"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Oct 2020 04:55:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apiChange\": \"1\",\n    \"title\": \"replicationgroups List\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"/dashboard/zones/localzone/replicationgroups\"\n        }\n    },\n    \"_embedded\": {\n        \"_instances\": [\n            {\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:c716330b-0d24-4332-84aa-3815165d17df:global\"\n                    },\n                    \"datatables\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:c716330b-0d24-4332-84aa-3815165d17df:global/datatables\"\n                    },\n                    \"rglinks\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:c716330b-0d24-4332-84aa-3815165d17df:global/rglinks\"\n                    }\n                },\n                \"replicationEgressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                },\n                \"numZones\": \"1\",\n                \"replicationEgressTraffic\": [],\n                \"replicationIngressTraffic\": [],\n                \"replicationIngressTrafficCurrent\": [],\n                \"name\": \"cts-rg\",\n                \"chunksPendingXorTotalSize\": \"0\",\n                \"chunksRepoPendingReplicationTotalSize\": \"0\",\n                \"id\": \"Replication_Group:urn:storageos:ReplicationGroupInfo:c716330b-0d24-4332-84aa-3815165d17df:global\",\n                \"replicationEgressTrafficCurrent\": [],\n                \"chunksJournalPendingReplicationTotalSize\": \"0\",\n                \"replicationIngressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                }\n            },\n            {\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:ec0d2999-ef3e-489b-9465-786c446434a8:global\"\n                    },\n                    \"datatables\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:ec0d2999-ef3e-489b-9465-786c446434a8:global/datatables\"\n                    },\n                    \"rglinks\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:ec0d2999-ef3e-489b-9465-786c446434a8:global/rglinks\"\n                    }\n                },\n                \"replicationEgressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                },\n                \"numZones\": \"1\",\n                \"replicationEgressTraffic\": [],\n                \"replicationIngressTraffic\": [],\n                \"replicationIngressTrafficCurrent\": [],\n                \"name\": \"rgmunich\",\n                \"chunksPendingXorTotalSize\": \"0\",\n                \"chunksRepoPendingReplicationTotalSize\": \"0\",\n                \"id\": \"Replication_Group:urn:storageos:ReplicationGroupInfo:ec0d2999-ef3e-489b-9465-786c446434a8:global\",\n                \"replicationEgressTrafficCurrent\": [],\n                \"chunksJournalPendingReplicationTotalSize\": \"0\",\n                \"replicationIngressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                }\n            },\n            {\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:888712df-6686-4b3a-a540-52a311168f3c:global\"\n                    },\n                    \"datatables\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:888712df-6686-4b3a-a540-52a311168f3c:global/datatables\"\n                    },\n                    \"rglinks\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:888712df-6686-4b3a-a540-52a311168f3c:global/rglinks\"\n                    }\n                },\n                \"replicationEgressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                },\n                \"numZones\": \"1\",\n                \"replicationEgressTraffic\": [],\n                \"replicationIngressTraffic\": [],\n                \"replicationIngressTrafficCurrent\": [],\n                \"name\": \"rgmunich2\",\n                \"chunksPendingXorTotalSize\": \"0\",\n                \"chunksRepoPendingReplicationTotalSize\": \"0\",\n                \"id\": \"Replication_Group:urn:storageos:ReplicationGroupInfo:888712df-6686-4b3a-a540-52a311168f3c:global\",\n                \"replicationEgressTrafficCurrent\": [],\n                \"chunksJournalPendingReplicationTotalSize\": \"0\",\n                \"replicationIngressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "List Storage Servers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/vdc/instances/storageservers",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"vdc",
+						"instances",
+						"storageservers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Replication Group Status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{emeaendpoint}}/dashboard/zones/localzone/replicationgroups",
+							"host": [
+								"{{emeaendpoint}}"
+							],
+							"path": [
+								"dashboard",
+								"zones",
+								"localzone",
+								"replicationgroups"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 26 Oct 2020 04:55:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"apiChange\": \"1\",\n    \"title\": \"replicationgroups List\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"/dashboard/zones/localzone/replicationgroups\"\n        }\n    },\n    \"_embedded\": {\n        \"_instances\": [\n            {\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:c716330b-0d24-4332-84aa-3815165d17df:global\"\n                    },\n                    \"datatables\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:c716330b-0d24-4332-84aa-3815165d17df:global/datatables\"\n                    },\n                    \"rglinks\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:c716330b-0d24-4332-84aa-3815165d17df:global/rglinks\"\n                    }\n                },\n                \"replicationEgressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                },\n                \"numZones\": \"1\",\n                \"replicationEgressTraffic\": [],\n                \"replicationIngressTraffic\": [],\n                \"replicationIngressTrafficCurrent\": [],\n                \"name\": \"cts-rg\",\n                \"chunksPendingXorTotalSize\": \"0\",\n                \"chunksRepoPendingReplicationTotalSize\": \"0\",\n                \"id\": \"Replication_Group:urn:storageos:ReplicationGroupInfo:c716330b-0d24-4332-84aa-3815165d17df:global\",\n                \"replicationEgressTrafficCurrent\": [],\n                \"chunksJournalPendingReplicationTotalSize\": \"0\",\n                \"replicationIngressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                }\n            },\n            {\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:ec0d2999-ef3e-489b-9465-786c446434a8:global\"\n                    },\n                    \"datatables\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:ec0d2999-ef3e-489b-9465-786c446434a8:global/datatables\"\n                    },\n                    \"rglinks\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:ec0d2999-ef3e-489b-9465-786c446434a8:global/rglinks\"\n                    }\n                },\n                \"replicationEgressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                },\n                \"numZones\": \"1\",\n                \"replicationEgressTraffic\": [],\n                \"replicationIngressTraffic\": [],\n                \"replicationIngressTrafficCurrent\": [],\n                \"name\": \"rgmunich\",\n                \"chunksPendingXorTotalSize\": \"0\",\n                \"chunksRepoPendingReplicationTotalSize\": \"0\",\n                \"id\": \"Replication_Group:urn:storageos:ReplicationGroupInfo:ec0d2999-ef3e-489b-9465-786c446434a8:global\",\n                \"replicationEgressTrafficCurrent\": [],\n                \"chunksJournalPendingReplicationTotalSize\": \"0\",\n                \"replicationIngressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                }\n            },\n            {\n                \"_links\": {\n                    \"self\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:888712df-6686-4b3a-a540-52a311168f3c:global\"\n                    },\n                    \"datatables\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:888712df-6686-4b3a-a540-52a311168f3c:global/datatables\"\n                    },\n                    \"rglinks\": {\n                        \"href\": \"/dashboard/replicationgroups/Replication_Group:urn:storageos:ReplicationGroupInfo:888712df-6686-4b3a-a540-52a311168f3c:global/rglinks\"\n                    }\n                },\n                \"replicationEgressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                },\n                \"numZones\": \"1\",\n                \"replicationEgressTraffic\": [],\n                \"replicationIngressTraffic\": [],\n                \"replicationIngressTrafficCurrent\": [],\n                \"name\": \"rgmunich2\",\n                \"chunksPendingXorTotalSize\": \"0\",\n                \"chunksRepoPendingReplicationTotalSize\": \"0\",\n                \"id\": \"Replication_Group:urn:storageos:ReplicationGroupInfo:888712df-6686-4b3a-a540-52a311168f3c:global\",\n                \"replicationEgressTrafficCurrent\": [],\n                \"chunksJournalPendingReplicationTotalSize\": \"0\",\n                \"replicationIngressTrafficSummary\": {\n                    \"Min\": [],\n                    \"Max\": [],\n                    \"Avg\": \"0.0\"\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "BETA Advanced Reporting API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"type": "text",
+						"value": "{{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"query\": \"from(bucket:\\\"monitoring_main\\\") |> range(start: -30m) |> filter(fn: (r) => r._measurement == \\\"statDataHead_performance_internal_transactions\\\")\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "{{endpointmtg}}/flux/api/external/v2/query",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"flux",
+						"api",
+						"external",
+						"v2",
+						"query"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "BETA Advanced Reporting API",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-SDS-AUTH-TOKEN",
+								"type": "text",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"query\": \"from(bucket:\\\"monitoring_main\\\") |> range(start: -30m) |> filter(fn: (r) => r._measurement == \\\"statDataHead_performance_internal_transactions\\\")\"\r\n}"
+						},
+						"url": {
+							"raw": "{{endpointmtg}}/flux/api/external/v2/query",
+							"host": [
+								"{{endpointmtg}}"
+							],
+							"path": [
+								"flux",
+								"api",
+								"external",
+								"v2",
+								"query"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 28 Oct 2020 10:15:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-From",
+							"value": "remote"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "R175414"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "R175414"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Series\": [\n        {\n            \"Datatypes\": [\n                \"long\",\n                \"dateTime:RFC3339\",\n                \"dateTime:RFC3339\",\n                \"dateTime:RFC3339\",\n                \"long\",\n                \"string\",\n                \"string\",\n                \"string\",\n                \"string\",\n                \"string\",\n                \"string\"\n            ],\n            \"Columns\": [\n                \"table\",\n                \"_start\",\n                \"_stop\",\n                \"_time\",\n                \"_value\",\n                \"_field\",\n                \"_measurement\",\n                \"host\",\n                \"node_id\",\n                \"process\",\n                \"tag\"\n            ],\n            \"Values\": [\n                [\n                    \"0\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:47:45Z\",\n                    \"1447\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"0\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:52:45Z\",\n                    \"1447\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"0\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:57:45Z\",\n                    \"1447\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"0\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:02:45Z\",\n                    \"1447\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"0\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:07:45Z\",\n                    \"1447\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"0\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:12:45Z\",\n                    \"1447\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"1\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:47:45Z\",\n                    \"1196829\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"1\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:52:45Z\",\n                    \"1196981\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"1\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:57:45Z\",\n                    \"1197133\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"1\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:02:45Z\",\n                    \"1197285\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"1\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:07:45Z\",\n                    \"1197437\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"1\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:12:45Z\",\n                    \"1197588\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs1.ecs.test\",\n                    \"758098a4-0fdc-445b-916c-f1a549606505\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"2\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:48:45Z\",\n                    \"419\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"2\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:53:45Z\",\n                    \"419\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"2\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:58:45Z\",\n                    \"419\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"2\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:03:45Z\",\n                    \"419\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"2\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:08:45Z\",\n                    \"419\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"2\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:13:45Z\",\n                    \"419\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"3\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:48:45Z\",\n                    \"1205634\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"3\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:53:45Z\",\n                    \"1205784\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"3\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:58:45Z\",\n                    \"1205934\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"3\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:03:45Z\",\n                    \"1206084\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"3\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:08:45Z\",\n                    \"1206233\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"3\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:13:45Z\",\n                    \"1206383\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs2.ecs.test\",\n                    \"951bd8bb-79fe-42c7-99c7-447fe8f8387b\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"4\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:48:25Z\",\n                    \"147\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"4\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:53:25Z\",\n                    \"147\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"4\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:58:25Z\",\n                    \"147\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"4\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:03:25Z\",\n                    \"147\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"4\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:08:25Z\",\n                    \"147\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"4\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:13:25Z\",\n                    \"147\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"5\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:48:25Z\",\n                    \"1204667\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"5\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:53:25Z\",\n                    \"1204817\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"5\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:58:25Z\",\n                    \"1204967\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"5\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:03:25Z\",\n                    \"1205116\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"5\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:08:25Z\",\n                    \"1205266\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"5\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:13:25Z\",\n                    \"1205416\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs3.ecs.test\",\n                    \"96860819-738b-4bb3-bef2-355b8d9de3ff\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"6\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:48:26Z\",\n                    \"287\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"6\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:53:26Z\",\n                    \"287\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"6\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:58:26Z\",\n                    \"287\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"6\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:03:26Z\",\n                    \"287\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"6\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:08:26Z\",\n                    \"287\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"6\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:13:26Z\",\n                    \"287\",\n                    \"failed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"7\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:48:26Z\",\n                    \"1205188\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"7\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:53:26Z\",\n                    \"1205338\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"7\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T09:58:26Z\",\n                    \"1205487\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"7\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:03:26Z\",\n                    \"1205637\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"7\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:08:26Z\",\n                    \"1205787\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ],\n                [\n                    \"7\",\n                    \"2020-10-28T09:45:39.669537711Z\",\n                    \"2020-10-28T10:15:39.669537711Z\",\n                    \"2020-10-28T10:13:26Z\",\n                    \"1205937\",\n                    \"succeed_request_counter\",\n                    \"statDataHead_performance_internal_transactions\",\n                    \"lsc-ecs4.ecs.test\",\n                    \"a03f6330-f8f9-4878-b1bc-f11fddb0b948\",\n                    \"statDataHead\",\n                    \"dashboard\"\n                ]\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Logout Mgnt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fa74a7e4-9321-4834-aca8-77bd51432511",
+						"exec": [
+							"pm.environment.unset(\"token\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-SDS-AUTH-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{endpointmtg}}/logout",
+					"host": [
+						"{{endpointmtg}}"
+					],
+					"path": [
+						"logout"
+					],
+					"query": [
+						{
+							"key": "force",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{username}}",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
