@@ -1,5 +1,5 @@
 # Project-Vision
-Postman collections for DellEMC's block storage products
+Postman collections for DellEMC's storage products' REST APIs
 ## Details
 This Avengers' project leverages Postman's import collection capabilities to provide sample API calls for the following products:
  - PowerMax
@@ -7,8 +7,8 @@ This Avengers' project leverages Postman's import collection capabilities to pro
  - PowerFlex (formerly ScaleIO and VxFlex)
  - VPLEX - this collection has been kindly contributed by [Ankur Patel](https://www.youtube.com/channel/UC_Y46gxyBVWH2Xr7qSJ32Kw)
  - ECS management and ECS S3 API - these collections are courtesy of [Christopher Jenkins](https://github.com/chrisjen83?tab=repositories)
- - XtremIO
  - Unity
+ - XtremIO
  - PowerOne (tested only with the PowerOne simulator)
 
 The goal of the project is to help customers of these products to automate day 1 and day 2 operations by looking at handy examples. API reference guides can sometimes be many hundreds of pages, so by looking at some of the most common operational examples one can kickstart coding efforts. Each collection aims to provide sample calls in these areas:
@@ -32,4 +32,4 @@ PowerFlex | ip | pwd | token
 PowerStore | ip | pwd | token
 PowerOne |  |  | token
 
-For details on the environment requirement for the two ECS collections please visit [Chris Jenkins's repo] (https://github.com/chrisjen83/ECS-Postman-Examples)
+For details on the environment requirement for the two ECS collections please visit [Chris Jenkins's repo](https://github.com/chrisjen83/ECS-Postman-Examples)
