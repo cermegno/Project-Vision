@@ -6,7 +6,7 @@ This Avengers' project leverages Postman's import collection capabilities to pro
  - PowerStore
  - PowerFlex (formerly ScaleIO and VxFlex)
  - VPLEX - this collection has been kindly contributed by [Ankur Patel](https://www.youtube.com/channel/UC_Y46gxyBVWH2Xr7qSJ32Kw)
- - ECS management and ECS S3 API - these collections are courtesy of [Christopher Jenkins](https://github.com/chrisjen83?tab=repositories)
+ - ECS management and ECS S3 API - these two collections are courtesy of [Christopher Jenkins](https://github.com/chrisjen83?tab=repositories)
  - Unity
  - XtremIO
  - PowerOne (tested only with the PowerOne simulator)
