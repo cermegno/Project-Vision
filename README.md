@@ -33,3 +33,5 @@ PowerStore | ip | pwd | token
 PowerOne |  |  | token
 
 For details on the environment requirement for the two ECS collections please visit [Chris Jenkins's repo](https://github.com/chrisjen83/ECS-Postman-Examples)
+
+If you are interested in automating products the Dell's Data Protection portfolio such as Networker, Data Domain, Avamar and more you can visit [Raghava Jainoje's repo](https://github.com/rjainoje/DELLEMC-DPS-Postman-Collections-RESTAPIs). He has provided Postman collections for those products
