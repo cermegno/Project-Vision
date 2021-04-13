@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "3e72f12a-4280-4f3c-aada-4adf09dfc147",
+		"name": "SC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-dell-api-version",
+						"value": "5.2",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}:3033/api/rest/ApiConnection/Login",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "3033",
+					"path": [
+						"api",
+						"rest",
+						"ApiConnection",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Volumes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-dell-api-version",
+						"type": "text",
+						"value": "5.2"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}:3033/api/rest/StorageCenter/ScVolume?scSerialNumber=300758",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "3033",
+					"path": [
+						"api",
+						"rest",
+						"StorageCenter",
+						"ScVolume"
+					],
+					"query": [
+						{
+							"key": "scSerialNumber",
+							"value": "300758"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Volume",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-dell-api-version",
+						"type": "text",
+						"value": "5.2"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\":\"Alberto-test\",\r\n    \"Size\":\"13GB\",\r\n    \"StorageCenter\":\"300758\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{ip}}:3033/api/rest/StorageCenter/ScVolume",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "3033",
+					"path": [
+						"api",
+						"rest",
+						"StorageCenter",
+						"ScVolume"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Volumes specific name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-dell-api-version",
+						"type": "text",
+						"value": "5.2"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}:3033/api/rest/StorageCenter/ScVolume?name=Alberto-test",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "3033",
+					"path": [
+						"api",
+						"rest",
+						"StorageCenter",
+						"ScVolume"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Alberto-test"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Expand Volume to Size",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-dell-api-version",
+						"type": "text",
+						"value": "5.2"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"NewSize\":\"15GB\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{ip}}:3033/api/rest/StorageCenter/ScVolume/300758.71/ExpandToSize",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "3033",
+					"path": [
+						"api",
+						"rest",
+						"StorageCenter",
+						"ScVolume",
+						"300758.71",
+						"ExpandToSize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Volume",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-dell-api-version",
+						"type": "text",
+						"value": "5.2"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}:3033/api/rest/StorageCenter/ScVolume/300758.68",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "3033",
+					"path": [
+						"api",
+						"rest",
+						"StorageCenter",
+						"ScVolume",
+						"300758.68"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get FaultDomains",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-dell-api-version",
+						"type": "text",
+						"value": "5.2"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://{{ip}}:3033/api/rest/StorageCenter/ScVolume?scSerialNumber=300758",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "3033",
+					"path": [
+						"api",
+						"rest",
+						"StorageCenter",
+						"ScVolume"
+					],
+					"query": [
+						{
+							"key": "scSerialNumber",
+							"value": "300758"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{pwd}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "Admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
