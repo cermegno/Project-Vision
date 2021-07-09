@@ -33,6 +33,7 @@ PowerMax/VMAX | ip | pwd | serial
 PowerFlex | ip | pwd | token
 PowerStore | ip | pwd | token
 SC | ip | pwd |
+iDRAC Redfish | ip | pwd |
 PowerOne |  |  | token
 
 For details on the environment requirement for the two ECS collections please visit [Chris Jenkins's repo](https://github.com/chrisjen83/ECS-Postman-Examples)
