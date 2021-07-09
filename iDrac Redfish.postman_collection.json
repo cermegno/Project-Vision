@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "30c4a744-a0e9-41b3-b911-f27d9f56acb2",
+		"name": "iDrac Redfish",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Top Level",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Managers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Managers",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Managers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "iDRAC details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Managers/iDRAC.Embedded.1",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Managers",
+						"iDRAC.Embedded.1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "iDRAC event log",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Managers/iDRAC.Embedded.1/Logs/Sel",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Managers",
+						"iDRAC.Embedded.1",
+						"Logs",
+						"Sel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Systems",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Systems",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Systems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Systems server details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Systems/System.Embedded.1",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Systems",
+						"System.Embedded.1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Systems server processors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Systems/System.Embedded.1/Processors",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Systems",
+						"System.Embedded.1",
+						"Processors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Systems server proc 1 details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Systems/System.Embedded.1/Processors/CPU.Socket.1",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Systems",
+						"System.Embedded.1",
+						"Processors",
+						"CPU.Socket.1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Systems server storage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Systems/System.Embedded.1/Storage",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Systems",
+						"System.Embedded.1",
+						"Storage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Systems server storage PERC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Systems/System.Embedded.1/Storage/RAID.Slot.5-1",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Systems",
+						"System.Embedded.1",
+						"Storage",
+						"RAID.Slot.5-1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hostname change",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"HostName\": \"albtest01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Systems/System.Embedded.1",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Systems",
+						"System.Embedded.1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Systems server boot sources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Systems/System.Embedded.1/BootSources",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Systems",
+						"System.Embedded.1",
+						"BootSources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Systems server RESET",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ResetType\": \"ForceRestart\"\r\n}"
+				},
+				"url": {
+					"raw": "https://{{ip}}/redfish/v1/Systems/System.Embedded.1/Actions/ComputerSystem.Reset",
+					"protocol": "https",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"redfish",
+						"v1",
+						"Systems",
+						"System.Embedded.1",
+						"Actions",
+						"ComputerSystem.Reset"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{pwd}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "root",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
