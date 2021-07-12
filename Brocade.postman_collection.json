@@ -1,0 +1,692 @@
+{
+	"info": {
+		"_postman_id": "bcc37e87-751a-40b7-b4f2-f33c77d8a8bf",
+		"name": "Brocade",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"authkey\", pm.response.headers.get(\"Authorization\"));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{pwd}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/login",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modules exposed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/brocade-module-version",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"brocade-module-version"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FC Switch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-fibrechannel-switch/fibrechannel-switch",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-fibrechannel-switch",
+						"fibrechannel-switch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fabric Switch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-fabric/fabric-switch",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-fabric",
+						"fabric-switch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chassis",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-chassis/chassis",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-chassis",
+						"chassis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Interface FC",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-interface/fibrechannel",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-interface",
+						"fibrechannel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FDMI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-fdmi/hba",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-fdmi",
+						"hba"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Interface FC statistics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-interface/fibrechannel-statistics",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-interface",
+						"fibrechannel-statistics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Zone defined config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-zone/defined-configuration",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-zone",
+						"defined-configuration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Zone defined config cfg",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-zone/defined-configuration/cfg",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-zone",
+						"defined-configuration",
+						"cfg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Zone defined config alias",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-zone/defined-configuration/alias",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-zone",
+						"defined-configuration",
+						"alias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Zone effective config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/running/brocade-zone/effective-configuration",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"running",
+						"brocade-zone",
+						"effective-configuration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{authkey}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/yang-data+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/yang-data+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{ip}}/rest/logout",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"rest",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
